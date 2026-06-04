@@ -25,25 +25,25 @@ COLOR_READY    = "#27ae60"
 # =============================================================
 #                       I18N / TRANSLATIONS
 # =============================================================
-LANG_CHOICES = {"en": "English", "fr": "Français", "es": "Español"}
+LANG_CHOICES = {"en": "English", "fr": "FranÃ§ais", "es": "EspaÃ±ol"}
 
 TRANSLATIONS = {
     "en": {
-        "language_label": "< Language",
-        "csv_standard": "=Ä CSV Upload (Standard)",
-        "csv_custom": "=' CSV Upload (Custom Mapping)",
-        "kobo_api": "< KoboToolbox API",
+        "language_label": "ğŸŒ Language",
+        "csv_standard": "ğŸ“„ CSV Upload (Standard)",
+        "csv_custom": "ğŸ”§ CSV Upload (Custom Mapping)",
+        "kobo_api": "ğŸŒ KoboToolbox API",
         "upload_csv": "Upload CSV File",
         "kobo_url": "Kobo Server URL",
         "asset_uid": "Asset UID",
         "api_token": "API Token",
-        "fetch_data": "=€ Fetch Data",
-        "apply_mapping": " Apply Mapping",
-        "required_fields": "<å Required Fields",
-        "total_score_section": "<¯ Total Score",
-        "component_scores": ">é Component Scores",
-        "upload_to_begin": " Upload a CSV to begin mapping its columns.",
-        "columns_detected": " {n} columns detected. Review the auto-suggested matches.",
+        "fetch_data": "ğŸš€ Fetch Data",
+        "apply_mapping": "âœ… Apply Mapping",
+        "required_fields": "ğŸ¥ Required Fields",
+        "total_score_section": "ğŸ¯ Total Score",
+        "component_scores": "ğŸ§© Component Scores",
+        "upload_to_begin": "â¬†ï¸ Upload a CSV to begin mapping its columns.",
+        "columns_detected": "âœ… {n} columns detected. Review the auto-suggested matches.",
         "time_axis": "Time Axis",
         "reporting_date": "Reporting Date",
         "days_since_baseline": "Days Since Baseline",
@@ -51,56 +51,56 @@ TRANSLATIONS = {
         "facilities": "Facilities",
         "components": "Components",
         "critical_components": "Outbreak-Critical Components",
-        "thresholds_info": "Unified thresholds: =4 d 50, =á 5179, =â e 80",
-        "district": "=ú District",
-        "subdistrict": "=ú Subdistrict",
-        "all_option": " All ",
+        "thresholds_info": "Unified thresholds: ğŸ”´ â‰¤ 50, ğŸŸ¡ 51â€“79, ğŸŸ¢ â‰¥ 80",
+        "district": "ğŸ—ºï¸ District",
+        "subdistrict": "ğŸ—ºï¸ Subdistrict",
+        "all_option": "â€” All â€”",
 
         "network_title": "Summary View",
         "network_subtitle": "Multi-facility trajectories anchored to each facility's first assessment",
         "outbreak_title": "Outbreak Response",
-        "outbreak_subtitle": "Live triage view  who can safely receive cases, where to send response teams",
+        "outbreak_subtitle": "Live triage view â€” who can safely receive cases, where to send response teams",
         "deep_dive_title": "Facility Deep Dive",
-        "deep_dive_subtitle": "Detailed inspection of a single facility  change selection in the sidebar",
+        "deep_dive_subtitle": "Detailed inspection of a single facility â€” change selection in the sidebar",
 
         "kpi_facilities_tracked": "Facilities Tracked",
         "kpi_avg_assessments": "Avg Assessments / Facility",
-        "kpi_median_delta": "Median ” Total Score",
+        "kpi_median_delta": "Median Î” Total Score",
         "kpi_median_followup": "Median Follow-up (days)",
         "kpi_ready": "Ready Facilities",
         "kpi_at_risk": "At Risk",
         "kpi_critical": "Critical",
         "kpi_bundle": "Bundle Compliant",
 
-        "card_total_traj": "=È Total Score Trajectory  One Line per Facility",
-        "card_delta_heatmap": "=å=é Change from Baseline  Latest minus First Score",
-        "card_summary": "=Ë Facility Progress Summary (Baseline ’ Latest)",
-        "card_readiness_index": "=¦ Outbreak Readiness Index  Latest Snapshot",
-        "card_bundle_grid": "=â=á=4 Critical Bundle Compliance",
-        "card_facility_map": "=ú Facility Map  Readiness by Location",
-        "card_dispatch": "=Ë Dispatch Decision Table",
-        "card_snapshot": "=Ê Single Assessment Snapshot",
-        "card_diverging": "=Ê Component Change Since Baseline  Diverging View",
+        "card_total_traj": "ğŸ“ˆ Total Score Trajectory â€” One Line per Facility",
+        "card_delta_heatmap": "ğŸŸ¥ğŸŸ© Change from Baseline â€” Latest minus First Score",
+        "card_summary": "ğŸ“‹ Facility Progress Summary (Baseline â†’ Latest)",
+        "card_readiness_index": "ğŸš¦ Outbreak Readiness Index â€” Latest Snapshot",
+        "card_bundle_grid": "ğŸŸ¢ğŸŸ¡ğŸ”´ Critical Bundle Compliance",
+        "card_facility_map": "ğŸ—ºï¸ Facility Map â€” Readiness by Location",
+        "card_dispatch": "ğŸ“‹ Dispatch Decision Table",
+        "card_snapshot": "ğŸ“Š Single Assessment Snapshot",
+        "card_diverging": "ğŸ“Š Component Change Since Baseline â€” Diverging View",
 
-        "desc_total_traj": "Dashed lines mark the readiness bands: =4 d 50  =á 5179  =â e 80.",
+        "desc_total_traj": "Dashed lines mark the readiness bands: ğŸ”´ â‰¤ 50  ğŸŸ¡ 51â€“79  ğŸŸ¢ â‰¥ 80.",
         "desc_readiness_index": "Latest total score from each facility's most recent assessment.",
         "desc_bundle_grid": "One row per facility, one column per outbreak-critical component. Cells colored using global thresholds.",
         "desc_facility_map": "Each dot = one facility. Color = current readiness band; size scales with score. Requires latitude/longitude columns.",
         "desc_dispatch": "Sortable facility list with bundle status and specific gaps. Filter / export for SitReps and team briefings.",
-        "desc_snapshot": "All component scores for the selected assessment. Dashed lines mark thresholds (=4 d 50, =â e 80).",
-        "desc_diverging": "Red = regressions, green = improvements. Sorted biggest loss ’ biggest gain.",
+        "desc_snapshot": "All component scores for the selected assessment. Dashed lines mark thresholds (ğŸ”´ â‰¤ 50, ğŸŸ¢ â‰¥ 80).",
+        "desc_diverging": "Red = regressions, green = improvements. Sorted biggest loss â†’ biggest gain.",
 
-        "facility_inspect": "<å Facility to Inspect",
-        "specific_assessment": "=Ë Specific Assessment (defaults to most recent)",
+        "facility_inspect": "ğŸ¥ Facility to Inspect",
+        "specific_assessment": "ğŸ“‹ Specific Assessment (defaults to most recent)",
 
         "map_no_data": "No data loaded. Upload a CSV or fetch from Kobo to begin.",
-        "map_no_coords": "=ú Map unavailable  facility coordinates not found.",
+        "map_no_coords": "ğŸ—ºï¸ Map unavailable â€” facility coordinates not found.",
         "map_no_critical": "Select at least one outbreak-critical component.",
         "map_no_valid": "Coordinate columns are present but contain no valid points yet.",
 
-        "status_critical_short": "=4 Critical",
-        "status_at_risk_short": "=á At Risk",
-        "status_ready_short": "=â Ready",
+        "status_critical_short": "ğŸ”´ Critical",
+        "status_at_risk_short": "ğŸŸ¡ At Risk",
+        "status_ready_short": "ğŸŸ¢ Ready",
 
         "col_facility": "Facility",
         "col_assessments": "Assessments",
@@ -109,7 +109,7 @@ TRANSLATIONS = {
         "col_followup_days": "Follow-up (days)",
         "col_baseline_total": "Baseline Total",
         "col_latest_total": "Latest Total",
-        "col_delta_total": "” Total",
+        "col_delta_total": "Î” Total",
         "col_latest_status": "Latest Status",
         "col_readiness": "Readiness",
         "col_bundle_compliant": "Bundle Compliant",
@@ -118,288 +118,288 @@ TRANSLATIONS = {
         "col_status": "Status",
         "col_component": "Component",
         "col_score": "Score",
-        "col_delta_baseline": "” from Baseline",
+        "col_delta_baseline": "Î” from Baseline",
         "label_total_score": "TOTAL SCORE",
 
-        "regression": "À REGRESSION",
-        "improvement": "IMPROVEMENT ¶",
+        "regression": "â—€ REGRESSION",
+        "improvement": "IMPROVEMENT â–¶",
         "need_2_assess": "Need at least 2 assessments for this facility.",
         "chart_baseline": "Baseline",
-        "chart_critical_thresh": "Critical d 50",
-        "chart_ready_thresh": "Ready e 80",
+        "chart_critical_thresh": "Critical â‰¤ 50",
+        "chart_ready_thresh": "Ready â‰¥ 80",
         "chart_score": "Score",
         "chart_total_score": "Total Score",
         "chart_readiness_axis": "Readiness (mean of critical components)",
-        "chart_delta_score": "” Score (Latest  Baseline)",
-        "assessment_n_date": "Assessment #{n}  {date}",
+        "chart_delta_score": "Î” Score (Latest âˆ’ Baseline)",
+        "assessment_n_date": "Assessment #{n} â€” {date}",
         "use_custom_baseline": "Use custom baseline anchor",
         "baseline_date_label": "Baseline Date",
-        "buffer_weeks_label":  "Buffer (± weeks)",
+        "buffer_weeks_label":  "Buffer (Â± weeks)",
         "kpi_since_baseline":  "Assessments Since Baseline",
         "kpi_30d":             "Assessments (Last 30 Days)",
         "kpi_7d":              "Assessments (Last 7 Days)",
 
         "kpi_total_assessments": "Total Assessments",
-        "kpi_total_30d":         "Total  Last 30 Days",
-        "kpi_total_7d":          "Total  Last 7 Days",
-        "province": "=ú Province",
-        "level": "<÷ Facility Level",
+        "kpi_total_30d":         "Total â€” Last 30 Days",
+        "kpi_total_7d":          "Total â€” Last 7 Days",
+        "province": "ğŸ—ºï¸ Province",
+        "level": "ğŸ·ï¸ Facility Level",
 
         "trend_filter_label": "Filter by trend",
         "trend_all": "All",
-        "trend_up": "=È Increasing",
-        "trend_down": "=É Decreasing",
-        "trend_flat": "¡ Static",
+        "trend_up": "ğŸ“ˆ Increasing",
+        "trend_down": "ğŸ“‰ Decreasing",
+        "trend_flat": "â¡ï¸ Static",
         
 
     },
 
     "fr": {
-        "language_label": "< Langue",
-        "csv_standard": "=Ä Import CSV (Standard)",
-        "csv_custom": "=' Import CSV (Mappage personnalisé)",
-        "kobo_api": "< API KoboToolbox",
-        "upload_csv": "Téléverser un fichier CSV",
+        "language_label": "ğŸŒ Langue",
+        "csv_standard": "ğŸ“„ Import CSV (Standard)",
+        "csv_custom": "ğŸ”§ Import CSV (Mappage personnalisÃ©)",
+        "kobo_api": "ğŸŒ API KoboToolbox",
+        "upload_csv": "TÃ©lÃ©verser un fichier CSV",
         "kobo_url": "URL du serveur Kobo",
         "asset_uid": "UID de l'actif",
         "api_token": "Jeton API",
-        "fetch_data": "=€ Récupérer les données",
-        "apply_mapping": " Appliquer le mappage",
-        "required_fields": "<å Champs requis",
-        "total_score_section": "<¯ Score total",
-        "component_scores": ">é Scores des composants",
-        "upload_to_begin": " Téléversez un CSV pour commencer le mappage.",
-        "columns_detected": " {n} colonnes détectées. Vérifiez les correspondances suggérées.",
+        "fetch_data": "ğŸš€ RÃ©cupÃ©rer les donnÃ©es",
+        "apply_mapping": "âœ… Appliquer le mappage",
+        "required_fields": "ğŸ¥ Champs requis",
+        "total_score_section": "ğŸ¯ Score total",
+        "component_scores": "ğŸ§© Scores des composants",
+        "upload_to_begin": "â¬†ï¸ TÃ©lÃ©versez un CSV pour commencer le mappage.",
+        "columns_detected": "âœ… {n} colonnes dÃ©tectÃ©es. VÃ©rifiez les correspondances suggÃ©rÃ©es.",
         "time_axis": "Axe temporel",
         "reporting_date": "Date du rapport",
-        "days_since_baseline": "Jours depuis le départ",
-        "assessment_num": "N° d'évaluation",
-        "facilities": "Établissements",
+        "days_since_baseline": "Jours depuis le dÃ©part",
+        "assessment_num": "NÂ° d'Ã©valuation",
+        "facilities": "Ã‰tablissements",
         "components": "Composants",
-        "critical_components": "Composants critiques d'épidémie",
-        "thresholds_info": "Seuils unifiés : =4 d 50, =á 5179, =â e 80",
-        "district": "=ú District",
-        "subdistrict": "=ú Sous-district",
-        "all_option": " Tous ",
+        "critical_components": "Composants critiques d'Ã©pidÃ©mie",
+        "thresholds_info": "Seuils unifiÃ©s : ğŸ”´ â‰¤ 50, ğŸŸ¡ 51â€“79, ğŸŸ¢ â‰¥ 80",
+        "district": "ğŸ—ºï¸ District",
+        "subdistrict": "ğŸ—ºï¸ Sous-district",
+        "all_option": "â€” Tous â€”",
 
-        "network_title": "Vue réseau",
-        "network_subtitle": "Trajectoires multi-établissements ancrées à la première évaluation",
-        "outbreak_title": "Réponse aux épidémies",
-        "outbreak_subtitle": "Vue de triage en temps réel  qui peut recevoir des cas, où envoyer les équipes",
-        "deep_dive_title": "Analyse détaillée d'un établissement",
-        "deep_dive_subtitle": "Inspection détaillée d'un établissement  changer la sélection dans la barre latérale",
+        "network_title": "Vue rÃ©seau",
+        "network_subtitle": "Trajectoires multi-Ã©tablissements ancrÃ©es Ã  la premiÃ¨re Ã©valuation",
+        "outbreak_title": "RÃ©ponse aux Ã©pidÃ©mies",
+        "outbreak_subtitle": "Vue de triage en temps rÃ©el â€” qui peut recevoir des cas, oÃ¹ envoyer les Ã©quipes",
+        "deep_dive_title": "Analyse dÃ©taillÃ©e d'un Ã©tablissement",
+        "deep_dive_subtitle": "Inspection dÃ©taillÃ©e d'un Ã©tablissement â€” changer la sÃ©lection dans la barre latÃ©rale",
 
-        "kpi_facilities_tracked": "Établissements suivis",
-        "kpi_avg_assessments": "Moy. évaluations / établissement",
-        "kpi_median_delta": "Médiane ” Score total",
-        "kpi_median_followup": "Suivi médian (jours)",
-        "kpi_ready": "Établissements prêts",
-        "kpi_at_risk": "À risque",
+        "kpi_facilities_tracked": "Ã‰tablissements suivis",
+        "kpi_avg_assessments": "Moy. Ã©valuations / Ã©tablissement",
+        "kpi_median_delta": "MÃ©diane Î” Score total",
+        "kpi_median_followup": "Suivi mÃ©dian (jours)",
+        "kpi_ready": "Ã‰tablissements prÃªts",
+        "kpi_at_risk": "Ã€ risque",
         "kpi_critical": "Critique",
         "kpi_bundle": "Bundle conforme",
 
-        "card_total_traj": "=È Trajectoire du score total  Une ligne par établissement",
-        "card_delta_heatmap": "=å=é Évolution depuis le départ  Dernier moins premier score",
-        "card_summary": "=Ë Résumé des progrès par établissement (Initial ’ Dernier)",
-        "card_readiness_index": "=¦ Indice de préparation aux épidémies  Dernier instantané",
-        "card_bundle_grid": "=â=á=4 Conformité du bundle critique",
-        "card_facility_map": "=ú Carte des établissements  Préparation par emplacement",
-        "card_dispatch": "=Ë Tableau de décision de déploiement",
-        "card_snapshot": "=Ê Instantané d'une évaluation",
-        "card_diverging": "=Ê Évolution depuis le départ  Vue divergente",
+        "card_total_traj": "ğŸ“ˆ Trajectoire du score total â€” Une ligne par Ã©tablissement",
+        "card_delta_heatmap": "ğŸŸ¥ğŸŸ© Ã‰volution depuis le dÃ©part â€” Dernier moins premier score",
+        "card_summary": "ğŸ“‹ RÃ©sumÃ© des progrÃ¨s par Ã©tablissement (Initial â†’ Dernier)",
+        "card_readiness_index": "ğŸš¦ Indice de prÃ©paration aux Ã©pidÃ©mies â€” Dernier instantanÃ©",
+        "card_bundle_grid": "ğŸŸ¢ğŸŸ¡ğŸ”´ ConformitÃ© du bundle critique",
+        "card_facility_map": "ğŸ—ºï¸ Carte des Ã©tablissements â€” PrÃ©paration par emplacement",
+        "card_dispatch": "ğŸ“‹ Tableau de dÃ©cision de dÃ©ploiement",
+        "card_snapshot": "ğŸ“Š InstantanÃ© d'une Ã©valuation",
+        "card_diverging": "ğŸ“Š Ã‰volution depuis le dÃ©part â€” Vue divergente",
 
-        "desc_total_traj": "Les lignes pointillées marquent les seuils : =4 d 50  =á 5179  =â e 80.",
-        "desc_readiness_index": "Score total le plus récent de chaque établissement.",
-        "desc_bundle_grid": "Une ligne par établissement, une colonne par composant critique. Cellules colorées selon les seuils globaux.",
-        "desc_facility_map": "Chaque point = un établissement. Couleur = niveau de préparation actuel ; taille = score. Nécessite latitude/longitude.",
-        "desc_dispatch": "Liste triable des établissements avec statut et lacunes. Filtrer/exporter pour les SitReps.",
-        "desc_snapshot": "Tous les scores pour l'évaluation sélectionnée. Lignes pointillées = seuils (=4 d 50, =â e 80).",
-        "desc_diverging": "Rouge = régressions, vert = améliorations. Trié de la plus grande perte au plus grand gain.",
+        "desc_total_traj": "Les lignes pointillÃ©es marquent les seuils : ğŸ”´ â‰¤ 50  ğŸŸ¡ 51â€“79  ğŸŸ¢ â‰¥ 80.",
+        "desc_readiness_index": "Score total le plus rÃ©cent de chaque Ã©tablissement.",
+        "desc_bundle_grid": "Une ligne par Ã©tablissement, une colonne par composant critique. Cellules colorÃ©es selon les seuils globaux.",
+        "desc_facility_map": "Chaque point = un Ã©tablissement. Couleur = niveau de prÃ©paration actuel ; taille = score. NÃ©cessite latitude/longitude.",
+        "desc_dispatch": "Liste triable des Ã©tablissements avec statut et lacunes. Filtrer/exporter pour les SitReps.",
+        "desc_snapshot": "Tous les scores pour l'Ã©valuation sÃ©lectionnÃ©e. Lignes pointillÃ©es = seuils (ğŸ”´ â‰¤ 50, ğŸŸ¢ â‰¥ 80).",
+        "desc_diverging": "Rouge = rÃ©gressions, vert = amÃ©liorations. TriÃ© de la plus grande perte au plus grand gain.",
 
-        "facility_inspect": "<å Établissement à inspecter",
-        "specific_assessment": "=Ë Évaluation spécifique (par défaut : la plus récente)",
+        "facility_inspect": "ğŸ¥ Ã‰tablissement Ã  inspecter",
+        "specific_assessment": "ğŸ“‹ Ã‰valuation spÃ©cifique (par dÃ©faut : la plus rÃ©cente)",
 
-        "map_no_data": "Aucune donnée chargée. Téléversez un CSV ou récupérez depuis Kobo.",
-        "map_no_coords": "=ú Carte indisponible  coordonnées introuvables.",
-        "map_no_critical": "Sélectionnez au moins un composant critique.",
-        "map_no_valid": "Les colonnes de coordonnées existent mais ne contiennent pas de points valides.",
+        "map_no_data": "Aucune donnÃ©e chargÃ©e. TÃ©lÃ©versez un CSV ou rÃ©cupÃ©rez depuis Kobo.",
+        "map_no_coords": "ğŸ—ºï¸ Carte indisponible â€” coordonnÃ©es introuvables.",
+        "map_no_critical": "SÃ©lectionnez au moins un composant critique.",
+        "map_no_valid": "Les colonnes de coordonnÃ©es existent mais ne contiennent pas de points valides.",
 
-        "status_critical_short": "=4 Critique",
-        "status_at_risk_short": "=á À risque",
-        "status_ready_short": "=â Prêt",
+        "status_critical_short": "ğŸ”´ Critique",
+        "status_at_risk_short": "ğŸŸ¡ Ã€ risque",
+        "status_ready_short": "ğŸŸ¢ PrÃªt",
 
-        "col_facility": "Établissement",
-        "col_assessments": "Évaluations",
+        "col_facility": "Ã‰tablissement",
+        "col_assessments": "Ã‰valuations",
         "col_baseline_date": "Date initiale",
-        "col_latest_date": "Dernière date",
+        "col_latest_date": "DerniÃ¨re date",
         "col_followup_days": "Suivi (jours)",
         "col_baseline_total": "Total initial",
         "col_latest_total": "Dernier total",
-        "col_delta_total": "” Total",
+        "col_delta_total": "Î” Total",
         "col_latest_status": "Statut actuel",
-        "col_readiness": "Préparation",
+        "col_readiness": "PrÃ©paration",
         "col_bundle_compliant": "Bundle conforme",
         "col_critical_gaps": "Lacunes critiques",
-        "col_last_assessed": "Dernière évaluation",
+        "col_last_assessed": "DerniÃ¨re Ã©valuation",
         "col_status": "Statut",
         "col_component": "Composant",
         "col_score": "Score",
-        "col_delta_baseline": "” depuis l'initial",
+        "col_delta_baseline": "Î” depuis l'initial",
         "label_total_score": "SCORE TOTAL",
 
-        "regression": "À RÉGRESSION",
-        "improvement": "AMÉLIORATION ¶",
-        "need_2_assess": "Au moins 2 évaluations sont nécessaires pour cet établissement.",
+        "regression": "â—€ RÃ‰GRESSION",
+        "improvement": "AMÃ‰LIORATION â–¶",
+        "need_2_assess": "Au moins 2 Ã©valuations sont nÃ©cessaires pour cet Ã©tablissement.",
         "chart_baseline": "Initial",
-        "chart_critical_thresh": "Critique d 50",
-        "chart_ready_thresh": "Prêt e 80",
+        "chart_critical_thresh": "Critique â‰¤ 50",
+        "chart_ready_thresh": "PrÃªt â‰¥ 80",
         "chart_score": "Score",
         "chart_total_score": "Score total",
-        "chart_readiness_axis": "Préparation (moyenne des composants critiques)",
-        "chart_delta_score": "” Score (Dernier  Initial)",
-        "assessment_n_date": "Évaluation n°{n}  {date}",
-        "use_custom_baseline": "Utiliser une date de référence personnalisée",
-        "baseline_date_label": "Date de référence",
-        "buffer_weeks_label":  "Tolérance (± semaines)",
-        "kpi_since_baseline":  "Évaluations depuis le départ",
-        "kpi_30d":             "Évaluations (30 derniers jours)",
-        "kpi_7d":              "Évaluations (7 derniers jours)",
-        "kpi_total_assessments": "Évaluations totales",
-        "kpi_total_30d":         "Total  30 derniers jours",
-        "kpi_total_7d":          "Total  7 derniers jours",
-        "province": "=ú Province",
-        "level": "<÷ Niveau d'installation",
+        "chart_readiness_axis": "PrÃ©paration (moyenne des composants critiques)",
+        "chart_delta_score": "Î” Score (Dernier âˆ’ Initial)",
+        "assessment_n_date": "Ã‰valuation nÂ°{n} â€” {date}",
+        "use_custom_baseline": "Utiliser une date de rÃ©fÃ©rence personnalisÃ©e",
+        "baseline_date_label": "Date de rÃ©fÃ©rence",
+        "buffer_weeks_label":  "TolÃ©rance (Â± semaines)",
+        "kpi_since_baseline":  "Ã‰valuations depuis le dÃ©part",
+        "kpi_30d":             "Ã‰valuations (30 derniers jours)",
+        "kpi_7d":              "Ã‰valuations (7 derniers jours)",
+        "kpi_total_assessments": "Ã‰valuations totales",
+        "kpi_total_30d":         "Total â€” 30 derniers jours",
+        "kpi_total_7d":          "Total â€” 7 derniers jours",
+        "province": "ğŸ—ºï¸ Province",
+        "level": "ğŸ·ï¸ Niveau d'installation",
 
         "trend_filter_label": "Filtrer par tendance",
         "trend_all": "Tous",
-        "trend_up": "=È En hausse",
-        "trend_down": "=É En baisse",
-        "trend_flat": "¡ Stable",
+        "trend_up": "ğŸ“ˆ En hausse",
+        "trend_down": "ğŸ“‰ En baisse",
+        "trend_flat": "â¡ï¸ Stable",
         
 
     },
 
     "es": {
-        "language_label": "< Idioma",
-        "csv_standard": "=Ä Carga CSV (Estándar)",
-        "csv_custom": "=' Carga CSV (Mapeo personalizado)",
-        "kobo_api": "< API KoboToolbox",
+        "language_label": "ğŸŒ Idioma",
+        "csv_standard": "ğŸ“„ Carga CSV (EstÃ¡ndar)",
+        "csv_custom": "ğŸ”§ Carga CSV (Mapeo personalizado)",
+        "kobo_api": "ğŸŒ API KoboToolbox",
         "upload_csv": "Subir archivo CSV",
         "kobo_url": "URL del servidor Kobo",
         "asset_uid": "UID del activo",
         "api_token": "Token API",
-        "fetch_data": "=€ Obtener datos",
-        "apply_mapping": " Aplicar mapeo",
-        "required_fields": "<å Campos requeridos",
-        "total_score_section": "<¯ Puntaje total",
-        "component_scores": ">é Puntajes de componentes",
-        "upload_to_begin": " Suba un CSV para comenzar el mapeo.",
-        "columns_detected": " {n} columnas detectadas. Revise las coincidencias sugeridas.",
+        "fetch_data": "ğŸš€ Obtener datos",
+        "apply_mapping": "âœ… Aplicar mapeo",
+        "required_fields": "ğŸ¥ Campos requeridos",
+        "total_score_section": "ğŸ¯ Puntaje total",
+        "component_scores": "ğŸ§© Puntajes de componentes",
+        "upload_to_begin": "â¬†ï¸ Suba un CSV para comenzar el mapeo.",
+        "columns_detected": "âœ… {n} columnas detectadas. Revise las coincidencias sugeridas.",
         "time_axis": "Eje temporal",
         "reporting_date": "Fecha del informe",
-        "days_since_baseline": "Días desde el inicio",
-        "assessment_num": "N° de evaluación",
+        "days_since_baseline": "DÃ­as desde el inicio",
+        "assessment_num": "NÂ° de evaluaciÃ³n",
         "facilities": "Instalaciones",
         "components": "Componentes",
-        "critical_components": "Componentes críticos del brote",
-        "thresholds_info": "Umbrales unificados: =4 d 50, =á 5179, =â e 80",
-        "district": "=ú Distrito",
-        "subdistrict": "=ú Subdistrito",
-        "all_option": " Todos ",
+        "critical_components": "Componentes crÃ­ticos del brote",
+        "thresholds_info": "Umbrales unificados: ğŸ”´ â‰¤ 50, ğŸŸ¡ 51â€“79, ğŸŸ¢ â‰¥ 80",
+        "district": "ğŸ—ºï¸ Distrito",
+        "subdistrict": "ğŸ—ºï¸ Subdistrito",
+        "all_option": "â€” Todos â€”",
 
         "network_title": "Vista de red",
-        "network_subtitle": "Trayectorias multi-instalación ancladas a la primera evaluación de cada una",
+        "network_subtitle": "Trayectorias multi-instalaciÃ³n ancladas a la primera evaluaciÃ³n de cada una",
         "outbreak_title": "Respuesta al brote",
-        "outbreak_subtitle": "Vista de triaje en vivo  quién puede recibir casos, dónde enviar equipos",
-        "deep_dive_title": "Análisis detallado de instalación",
-        "deep_dive_subtitle": "Inspección detallada de una sola instalación  cambie la selección en la barra lateral",
+        "outbreak_subtitle": "Vista de triaje en vivo â€” quiÃ©n puede recibir casos, dÃ³nde enviar equipos",
+        "deep_dive_title": "AnÃ¡lisis detallado de instalaciÃ³n",
+        "deep_dive_subtitle": "InspecciÃ³n detallada de una sola instalaciÃ³n â€” cambie la selecciÃ³n en la barra lateral",
 
         "kpi_facilities_tracked": "Instalaciones rastreadas",
-        "kpi_avg_assessments": "Prom. evaluaciones / instalación",
-        "kpi_median_delta": "Mediana ” Puntaje total",
-        "kpi_median_followup": "Seguimiento mediano (días)",
+        "kpi_avg_assessments": "Prom. evaluaciones / instalaciÃ³n",
+        "kpi_median_delta": "Mediana Î” Puntaje total",
+        "kpi_median_followup": "Seguimiento mediano (dÃ­as)",
         "kpi_ready": "Instalaciones listas",
         "kpi_at_risk": "En riesgo",
-        "kpi_critical": "Crítico",
+        "kpi_critical": "CrÃ­tico",
         "kpi_bundle": "Bundle conforme",
 
-        "card_total_traj": "=È Trayectoria del puntaje total  Una línea por instalación",
-        "card_delta_heatmap": "=å=é Cambio desde el inicio  Último menos primer puntaje",
-        "card_summary": "=Ë Resumen de progreso por instalación (Inicial ’ Último)",
-        "card_readiness_index": "=¦ Índice de preparación ante brotes  Última instantánea",
-        "card_bundle_grid": "=â=á=4 Cumplimiento del bundle crítico",
-        "card_facility_map": "=ú Mapa de instalaciones  Preparación por ubicación",
-        "card_dispatch": "=Ë Tabla de decisión de despliegue",
-        "card_snapshot": "=Ê Instantánea de una evaluación",
-        "card_diverging": "=Ê Cambio desde el inicio  Vista divergente",
+        "card_total_traj": "ğŸ“ˆ Trayectoria del puntaje total â€” Una lÃ­nea por instalaciÃ³n",
+        "card_delta_heatmap": "ğŸŸ¥ğŸŸ© Cambio desde el inicio â€” Ãšltimo menos primer puntaje",
+        "card_summary": "ğŸ“‹ Resumen de progreso por instalaciÃ³n (Inicial â†’ Ãšltimo)",
+        "card_readiness_index": "ğŸš¦ Ãndice de preparaciÃ³n ante brotes â€” Ãšltima instantÃ¡nea",
+        "card_bundle_grid": "ğŸŸ¢ğŸŸ¡ğŸ”´ Cumplimiento del bundle crÃ­tico",
+        "card_facility_map": "ğŸ—ºï¸ Mapa de instalaciones â€” PreparaciÃ³n por ubicaciÃ³n",
+        "card_dispatch": "ğŸ“‹ Tabla de decisiÃ³n de despliegue",
+        "card_snapshot": "ğŸ“Š InstantÃ¡nea de una evaluaciÃ³n",
+        "card_diverging": "ğŸ“Š Cambio desde el inicio â€” Vista divergente",
 
-        "desc_total_traj": "Líneas discontinuas marcan los umbrales: =4 d 50  =á 5179  =â e 80.",
-        "desc_readiness_index": "Puntaje total más reciente de cada instalación.",
-        "desc_bundle_grid": "Una fila por instalación, una columna por componente crítico. Celdas coloreadas según los umbrales globales.",
-        "desc_facility_map": "Cada punto = una instalación. Color = nivel de preparación; tamaño = puntaje. Requiere latitud/longitud.",
+        "desc_total_traj": "LÃ­neas discontinuas marcan los umbrales: ğŸ”´ â‰¤ 50  ğŸŸ¡ 51â€“79  ğŸŸ¢ â‰¥ 80.",
+        "desc_readiness_index": "Puntaje total mÃ¡s reciente de cada instalaciÃ³n.",
+        "desc_bundle_grid": "Una fila por instalaciÃ³n, una columna por componente crÃ­tico. Celdas coloreadas segÃºn los umbrales globales.",
+        "desc_facility_map": "Cada punto = una instalaciÃ³n. Color = nivel de preparaciÃ³n; tamaÃ±o = puntaje. Requiere latitud/longitud.",
         "desc_dispatch": "Lista ordenable con estado y brechas. Filtrar/exportar para SitReps y reuniones.",
-        "desc_snapshot": "Todos los puntajes de la evaluación seleccionada. Líneas discontinuas = umbrales (=4 d 50, =â e 80).",
-        "desc_diverging": "Rojo = regresiones, verde = mejoras. Ordenado de mayor pérdida a mayor ganancia.",
+        "desc_snapshot": "Todos los puntajes de la evaluaciÃ³n seleccionada. LÃ­neas discontinuas = umbrales (ğŸ”´ â‰¤ 50, ğŸŸ¢ â‰¥ 80).",
+        "desc_diverging": "Rojo = regresiones, verde = mejoras. Ordenado de mayor pÃ©rdida a mayor ganancia.",
 
-        "facility_inspect": "<å Instalación a inspeccionar",
-        "specific_assessment": "=Ë Evaluación específica (por defecto: la más reciente)",
+        "facility_inspect": "ğŸ¥ InstalaciÃ³n a inspeccionar",
+        "specific_assessment": "ğŸ“‹ EvaluaciÃ³n especÃ­fica (por defecto: la mÃ¡s reciente)",
 
         "map_no_data": "No hay datos cargados. Suba un CSV u obtenga datos de Kobo.",
-        "map_no_coords": "=ú Mapa no disponible  coordenadas no encontradas.",
-        "map_no_critical": "Seleccione al menos un componente crítico.",
-        "map_no_valid": "Las columnas de coordenadas existen pero no contienen puntos válidos.",
+        "map_no_coords": "ğŸ—ºï¸ Mapa no disponible â€” coordenadas no encontradas.",
+        "map_no_critical": "Seleccione al menos un componente crÃ­tico.",
+        "map_no_valid": "Las columnas de coordenadas existen pero no contienen puntos vÃ¡lidos.",
 
-        "status_critical_short": "=4 Crítico",
-        "status_at_risk_short": "=á En riesgo",
-        "status_ready_short": "=â Listo",
+        "status_critical_short": "ğŸ”´ CrÃ­tico",
+        "status_at_risk_short": "ğŸŸ¡ En riesgo",
+        "status_ready_short": "ğŸŸ¢ Listo",
 
-        "col_facility": "Instalación",
+        "col_facility": "InstalaciÃ³n",
         "col_assessments": "Evaluaciones",
         "col_baseline_date": "Fecha inicial",
-        "col_latest_date": "Última fecha",
-        "col_followup_days": "Seguimiento (días)",
+        "col_latest_date": "Ãšltima fecha",
+        "col_followup_days": "Seguimiento (dÃ­as)",
         "col_baseline_total": "Total inicial",
-        "col_latest_total": "Último total",
-        "col_delta_total": "” Total",
+        "col_latest_total": "Ãšltimo total",
+        "col_delta_total": "Î” Total",
         "col_latest_status": "Estado actual",
-        "col_readiness": "Preparación",
+        "col_readiness": "PreparaciÃ³n",
         "col_bundle_compliant": "Bundle conforme",
-        "col_critical_gaps": "Brechas críticas",
-        "col_last_assessed": "Última evaluación",
+        "col_critical_gaps": "Brechas crÃ­ticas",
+        "col_last_assessed": "Ãšltima evaluaciÃ³n",
         "col_status": "Estado",
         "col_component": "Componente",
         "col_score": "Puntaje",
-        "col_delta_baseline": "” desde el inicio",
+        "col_delta_baseline": "Î” desde el inicio",
         "label_total_score": "PUNTAJE TOTAL",
 
-        "regression": "À REGRESIÓN",
-        "improvement": "MEJORA ¶",
-        "need_2_assess": "Se necesitan al menos 2 evaluaciones para esta instalación.",
+        "regression": "â—€ REGRESIÃ“N",
+        "improvement": "MEJORA â–¶",
+        "need_2_assess": "Se necesitan al menos 2 evaluaciones para esta instalaciÃ³n.",
         "chart_baseline": "Inicial",
-        "chart_critical_thresh": "Crítico d 50",
-        "chart_ready_thresh": "Listo e 80",
+        "chart_critical_thresh": "CrÃ­tico â‰¤ 50",
+        "chart_ready_thresh": "Listo â‰¥ 80",
         "chart_score": "Puntaje",
         "chart_total_score": "Puntaje total",
-        "chart_readiness_axis": "Preparación (promedio de componentes críticos)",
-        "chart_delta_score": "” Puntaje (Último  Inicial)",
-        "assessment_n_date": "Evaluación N° {n}  {date}",
+        "chart_readiness_axis": "PreparaciÃ³n (promedio de componentes crÃ­ticos)",
+        "chart_delta_score": "Î” Puntaje (Ãšltimo âˆ’ Inicial)",
+        "assessment_n_date": "EvaluaciÃ³n NÂ° {n} â€” {date}",
         "use_custom_baseline": "Usar fecha de referencia personalizada",
         "baseline_date_label": "Fecha de referencia",
-        "buffer_weeks_label":  "Tolerancia (± semanas)",
+        "buffer_weeks_label":  "Tolerancia (Â± semanas)",
         "kpi_since_baseline":  "Evaluaciones desde el inicio",
-        "kpi_30d":             "Evaluaciones (últimos 30 días)",
-        "kpi_7d":              "Evaluaciones (últimos 7 días)",
+        "kpi_30d":             "Evaluaciones (Ãºltimos 30 dÃ­as)",
+        "kpi_7d":              "Evaluaciones (Ãºltimos 7 dÃ­as)",
         "kpi_total_assessments": "Evaluaciones totales",
-        "kpi_total_30d":         "Total  Últimos 30 días",
-        "kpi_total_7d":          "Total  Últimos 7 días",
-        "province": "=ú Provincia",
-        "level": "<÷ Nivel del establecimiento",
+        "kpi_total_30d":         "Total â€” Ãšltimos 30 dÃ­as",
+        "kpi_total_7d":          "Total â€” Ãšltimos 7 dÃ­as",
+        "province": "ğŸ—ºï¸ Provincia",
+        "level": "ğŸ·ï¸ Nivel del establecimiento",
 
         "trend_filter_label": "Filtrar por tendencia",
         "trend_all": "Todos",
-        "trend_up": "=È En aumento",
-        "trend_down": "=É En descenso",
-        "trend_flat": "¡ Estable",
+        "trend_up": "ğŸ“ˆ En aumento",
+        "trend_down": "ğŸ“‰ En descenso",
+        "trend_flat": "â¡ï¸ Estable",
     },
 }
 
@@ -421,7 +421,7 @@ def t(key: str, **kwargs) -> str:
 
 
 # ----- Column definitions -----
-# Maximum raw score per section  derived from the form's yes/no item count.
+# Maximum raw score per section â€” derived from the form's yes/no item count.
 # These sum to 62, which matches the form's score_total_brut denominator.
 SECTION_MAX = {
     "score_s1":  3,   "score_s2":  2,   "score_s3":  4,   "score_s4":  6,
@@ -454,42 +454,42 @@ COMPONENT_LABELS_I18N = {
         "score_s17": "17. Dead Body Mgmt",
     },
     "fr": {
-        "score_s1":  "1. Comité PCI",
+        "score_s1":  "1. ComitÃ© PCI",
         "score_s2":  "2. Formation",
-        "score_s3":  "3. Hygiène des mains",
-        "score_s4":  "4. Dépistage",
+        "score_s3":  "3. HygiÃ¨ne des mains",
+        "score_s4":  "4. DÃ©pistage",
         "score_s5":  "5. Isolement",
         "score_s6":  "6. EPI",
-        "score_s7":  "7. Sécurité injections",
+        "score_s7":  "7. SÃ©curitÃ© injections",
         "score_s8":  "8. Nettoyage env.",
-        "score_s9":  "9. Décontamination",
+        "score_s9":  "9. DÃ©contamination",
         "score_s10": "10. Post-exposition",
         "score_s11": "11. Gestion patients",
         "score_s12": "12. Placement patients",
         "score_s13": "13. Assainissement",
         "score_s14": "14. Eau",
-        "score_s15": "15. Déchets solides",
-        "score_s16": "16. Déchets liquides",
+        "score_s15": "15. DÃ©chets solides",
+        "score_s16": "16. DÃ©chets liquides",
         "score_s17": "17. Gestion des corps",
     },
     "es": {
-        "score_s1":  "1. Comité IPC",
-        "score_s2":  "2. Capacitación",
+        "score_s1":  "1. ComitÃ© IPC",
+        "score_s2":  "2. CapacitaciÃ³n",
         "score_s3":  "3. Higiene de manos",
-        "score_s4":  "4. Detección",
+        "score_s4":  "4. DetecciÃ³n",
         "score_s5":  "5. Aislamiento",
         "score_s6":  "6. EPP",
         "score_s7":  "7. Seguridad inyecciones",
         "score_s8":  "8. Limpieza ambiental",
-        "score_s9":  "9. Descontaminación",
-        "score_s10": "10. Post-exposición",
-        "score_s11": "11. Gestión pacientes",
-        "score_s12": "12. Ubicación pacientes",
+        "score_s9":  "9. DescontaminaciÃ³n",
+        "score_s10": "10. Post-exposiciÃ³n",
+        "score_s11": "11. GestiÃ³n pacientes",
+        "score_s12": "12. UbicaciÃ³n pacientes",
         "score_s13": "13. Saneamiento",
         "score_s14": "14. Suministro de agua",
-        "score_s15": "15. Residuos sólidos",
-        "score_s16": "16. Residuos líquidos",
-        "score_s17": "17. Gestión de cuerpos",
+        "score_s15": "15. Residuos sÃ³lidos",
+        "score_s16": "16. Residuos lÃ­quidos",
+        "score_s17": "17. GestiÃ³n de cuerpos",
     },
 }
 COMPONENT_LABELS = COMPONENT_LABELS_I18N["en"]   # back-compat
@@ -526,7 +526,7 @@ def _coerce(df):
     for c in [c for c in numeric_targets if c in df.columns]:
         df[c] = pd.to_numeric(df[c], errors="coerce")
 
-    # Convert each component's raw score ’ percentage (0100), in place.
+    # Convert each component's raw score â†’ percentage (0â€“100), in place.
     # If a column is already > 100 we assume it was percentage-scaled by an
     # earlier load and skip (idempotent / safe for re-coerce).
     for col, max_score in SECTION_MAX.items():
@@ -585,7 +585,7 @@ SUGGEST_KEYWORDS = {
     **{f"score_s{i}": [f"score_s{i}", f"s{i}_score"] for i in range(1, 18)},
 }
 
-NONE_OPTION = " None "
+NONE_OPTION = "â€” None â€”"
 ALL_OPTION  = "__ALL__"   # NEW: stable value; label is translated
 
 
@@ -606,15 +606,15 @@ def best_match(target_key: str, columns: list[str]) -> str:
 
 
 MAP_TARGETS = [
-    (FACILITY_COL,  "<å Facility Name (required)"),
-    (DATE_COL,      "=Å Reporting Date (required)"),
-    (PROVINCE_COL,    "=ú Province (optional)"),
-    (DISTRICT_COL,    "=ú District (optional)"),      
-    (SUBDISTRICT_COL, "=ú Subdistrict (optional)"),
-    (LEVEL_COL,       "<÷ Facility Level (optional)"),
-    (LATITUDE_COL,  "=Í Latitude (optional, for map)"),
-    (LONGITUDE_COL, "=Í Longitude (optional, for map)"),
-    (SCORE_TOTAL,   "<¯ Total Score"),
+    (FACILITY_COL,  "ğŸ¥ Facility Name (required)"),
+    (DATE_COL,      "ğŸ“… Reporting Date (required)"),
+    (PROVINCE_COL,    "ğŸ—ºï¸ Province (optional)"),
+    (DISTRICT_COL,    "ğŸ—ºï¸ District (optional)"),      
+    (SUBDISTRICT_COL, "ğŸ—ºï¸ Subdistrict (optional)"),
+    (LEVEL_COL,       "ğŸ·ï¸ Facility Level (optional)"),
+    (LATITUDE_COL,  "ğŸ“ Latitude (optional, for map)"),
+    (LONGITUDE_COL, "ğŸ“ Longitude (optional, for map)"),
+    (SCORE_TOTAL,   "ğŸ¯ Total Score"),
 ] + [(c, COMPONENT_LABELS[c]) for c in COMPONENT_COLS]
 
 #Cascading filter helper
@@ -752,16 +752,16 @@ def outbreak_readiness(df, critical_cols):
         below_ready = scores[scores < READY_THRESHOLD].dropna().index.tolist()
         critical_below = scores[scores <= CRITICAL_THRESHOLD].dropna().index.tolist()
         if critical_below:
-            status = "=4 CRITICAL"
+            status = "ğŸ”´ CRITICAL"
         elif below_ready:
-            status = "=á AT RISK"
+            status = "ğŸŸ¡ AT RISK"
         else:
-            status = "=â READY"
+            status = "ğŸŸ¢ READY"
         rows.append({
             "Facility": fac,
             "Readiness": round(mean, 1),
-            "Bundle Compliant": "" if not below_ready else "L",
-            "Critical Gaps": ", ".join(COMPONENT_LABELS.get(c, c) for c in below_ready) or "",
+            "Bundle Compliant": "âœ…" if not below_ready else "âŒ",
+            "Critical Gaps": ", ".join(COMPONENT_LABELS.get(c, c) for c in below_ready) or "â€”",
             "Last Assessed": row[DATE_COL].date(),
             "Status": status,
         })
@@ -770,9 +770,9 @@ def outbreak_readiness(df, critical_cols):
 
 def _translate_status(s: str) -> str:
     return {
-        "=4 CRITICAL": t("status_critical_short"),
-        "=á AT RISK":  t("status_at_risk_short"),
-        "=â READY":    t("status_ready_short"),
+        "ğŸ”´ CRITICAL": t("status_critical_short"),
+        "ğŸŸ¡ AT RISK":  t("status_at_risk_short"),
+        "ğŸŸ¢ READY":    t("status_ready_short"),
     }.get(s, s)
 
 
@@ -822,7 +822,7 @@ def _read_custom_csv():
         return
     custom_csv_raw.set(df)
     custom_csv_mapped.set(None)
-    mapping_status_msg.set(("info", f"=Ä Loaded {len(df):,} rows, {df.shape[1]} columns."))
+    mapping_status_msg.set(("info", f"ğŸ“„ Loaded {len(df):,} rows, {df.shape[1]} columns."))
 
 
 @reactive.effect
@@ -855,14 +855,14 @@ def _apply_mapping():
     if FACILITY_COL not in rename.values() or DATE_COL not in rename.values():
         mapping_status_msg.set((
             "err",
-            "L Facility Name and Reporting Date are required. Please map them.",
+            "âŒ Facility Name and Reporting Date are required. Please map them.",
         ))
         return
 
     mapped = df.rename(columns=rename)
     mapped = _coerce(mapped)
     custom_csv_mapped.set(mapped)
-    mapping_status_msg.set(("ok", f" Mapping applied  {len(rename)} columns mapped"))
+    mapping_status_msg.set(("ok", f"âœ… Mapping applied â€” {len(rename)} columns mapped"))
 
 
 @reactive.effect
@@ -873,13 +873,13 @@ def _fetch_kobo():
     token = (input.kobo_token() or "").strip()
     if not (url and asset and token):
         kobo_status_msg.set(("err", "Fill in all Kobo fields.")); return
-    kobo_status_msg.set(("info", "ó Fetching..."))
+    kobo_status_msg.set(("info", "â³ Fetching..."))
     try:
         df = fetch_kobo_data(url, asset, token)
         if df.empty:
             kobo_status_msg.set(("err", "No records returned.")); kobo_data.set(None); return
         kobo_data.set(df)
-        kobo_status_msg.set(("ok", f" Loaded {len(df):,} records."))
+        kobo_status_msg.set(("ok", f"âœ… Loaded {len(df):,} records."))
     except Exception as e:
         kobo_status_msg.set(("err", f"Error: {e}")); kobo_data.set(None)
 
@@ -957,7 +957,7 @@ def filtered_data():
     df = raw_data()
     if df is None: return None
     
-    # Province ’ District ’ Subdistrict ’ Level
+    # Province â†’ District â†’ Subdistrict â†’ Level
     df = _apply_cascade(df, CASCADE_LEVELS)
 
     sel = input.facilities()
@@ -1148,7 +1148,7 @@ ui.tags.script("""
   // -------- PPTX EXPORT --------
   window.exportTabToPPTX = async function(tabLabel) {
     if (typeof PptxGenJS === 'undefined') {
-      alert('Export library still loading  please try again in a moment.');
+      alert('Export library still loading â€” please try again in a moment.');
       return;
     }
     const pane = getActiveTabPane();
@@ -1163,13 +1163,13 @@ ui.tags.script("""
     // Disable the button visually while we work
     const btn = document.activeElement;
     const origText = btn ? btn.textContent : null;
-    if (btn) { btn.textContent = 'ó Building PowerPoint&'; btn.disabled = true; }
+    if (btn) { btn.textContent = 'â³ Building PowerPointâ€¦'; btn.disabled = true; }
 
     try {
       const Plotly = await ensurePlotly();
       const pres = new PptxGenJS();
-      pres.layout = 'LAYOUT_WIDE';   // 13.333 × 7.5 inches
-      pres.title  = tabLabel + '  IPC RAT Analysis';
+      pres.layout = 'LAYOUT_WIDE';   // 13.333 Ã— 7.5 inches
+      pres.title  = tabLabel + ' â€” IPC RAT Analysis';
 
       // Title slide
       const title = pres.addSlide();
@@ -1208,7 +1208,7 @@ ui.tags.script("""
           data: dataUrl,
           x: 0.5, y: 1.0, w: 12.3, h: 6.2
         });
-        slide.addText('IPC RAT Dashboard · ' + new Date().toLocaleDateString(), {
+        slide.addText('IPC RAT Dashboard Â· ' + new Date().toLocaleDateString(), {
           x: 0.3, y: 7.15, w: 12.7, h: 0.3,
           fontSize: 9, italic: true, color: '888888'
         });
@@ -1275,7 +1275,7 @@ ui.tags.style("""
 details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
 details > summary::before {
-    content: '¶'; display:inline-block; margin-right:6px;
+    content: 'â–¶'; display:inline-block; margin-right:6px;
     transition: transform .15s ease;
 }
 details[open] > summary::before { transform: rotate(90deg); }
@@ -1380,14 +1380,14 @@ body { font-family: 'Inter', sans-serif; background: #f5f7fa; }
     
 with ui.sidebar(width=380, open="open"):
 
-    with ui.accordion(id="sidebar_acc", multiple=True, open=["=Â Data Source"]):
+    with ui.accordion(id="sidebar_acc", multiple=True, open=["ğŸ“‚ Data Source"]):
 
         # ====================== Data Source ======================
-        with ui.accordion_panel("=Â Data Source"):
+        with ui.accordion_panel("ğŸ“‚ Data Source"):
 
             ui.input_select(
                 "language",
-                "< Language",
+                "ğŸŒ Language",
                 choices=LANG_CHOICES,
                 selected="en",
             )
@@ -1395,9 +1395,9 @@ with ui.sidebar(width=380, open="open"):
             ui.input_radio_buttons(
                 "source", None,
                 {
-                    "csv":        "=Ä CSV Upload (Standard)",
-                    "csv_custom": "=' CSV Upload (Custom Mapping)",
-                    "kobo":       "< KoboToolbox API",
+                    "csv":        "ğŸ“„ CSV Upload (Standard)",
+                    "csv_custom": "ğŸ”§ CSV Upload (Custom Mapping)",
+                    "kobo":       "ğŸŒ KoboToolbox API",
                 },
                 selected="csv",
             )
@@ -1454,7 +1454,7 @@ with ui.sidebar(width=380, open="open"):
                 ui.input_text("kobo_url", "Kobo Server URL", value="https://kf.kobotoolbox.org")
                 ui.input_text("kobo_asset", "Asset UID")
                 ui.input_password("kobo_token", "API Token")
-                ui.input_action_button("kobo_fetch", "=€ Fetch Data",
+                ui.input_action_button("kobo_fetch", "ğŸš€ Fetch Data",
                                        class_="btn-primary w-100")
 
                 @render.ui
@@ -1465,7 +1465,7 @@ with ui.sidebar(width=380, open="open"):
                     return ui.div(msg[1], class_=f"alert alert-{cls} mt-2 p-2 small")
 
         # ====================== View Controls ======================
-        with ui.accordion_panel("= View Controls"):
+        with ui.accordion_panel("ğŸ” View Controls"):
 
             ui.input_radio_buttons(
                 "x_axis", "Time Axis",
@@ -1475,10 +1475,10 @@ with ui.sidebar(width=380, open="open"):
                 selected="days",
             )
             # NEW: geographic filters (default to all)
-            ui.input_selectize("province",    "=ú Province",       choices=[], multiple=False)
-            ui.input_selectize("district",    "=ú District",       choices=[], multiple=False)
-            ui.input_selectize("subdistrict", "=ú Subdistrict",    choices=[], multiple=False)
-            ui.input_selectize("level",       "<÷ Facility Level", choices=[], multiple=False)
+            ui.input_selectize("province",    "ğŸ—ºï¸ Province",       choices=[], multiple=False)
+            ui.input_selectize("district",    "ğŸ—ºï¸ District",       choices=[], multiple=False)
+            ui.input_selectize("subdistrict", "ğŸ—ºï¸ Subdistrict",    choices=[], multiple=False)
+            ui.input_selectize("level",       "ğŸ·ï¸ Facility Level", choices=[], multiple=False)
             ui.input_selectize("facilities",  "Facilities",        choices=[], multiple=True)
             ui.input_selectize(
                 "components", "Components",
@@ -1502,12 +1502,12 @@ with ui.sidebar(width=380, open="open"):
                 )
                 ui.input_slider(
                     "baseline_buffer_weeks",
-                    "Buffer (± weeks)",
+                    "Buffer (Â± weeks)",
                     min=0, max=26, value=4, step=1,
                 )
 
         # ====================== Outbreak Settings ======================
-        with ui.accordion_panel("=¨ Outbreak Settings"):
+        with ui.accordion_panel("ğŸš¨ Outbreak Settings"):
 
             @render.ui
             def thresholds_info_ui():
@@ -1548,13 +1548,13 @@ with ui.sidebar(width=380, open="open"):
 with ui.navset_card_tab(id="main_tabs"):
 
     # =================================================================
-    #                  =¨ Outbreak Response TAB
+    #                  ğŸš¨ Outbreak Response TAB
     # =================================================================
-    with ui.nav_panel("=¨ Outbreak Response"):
+    with ui.nav_panel("ğŸš¨ Outbreak Response"):
 
         @render.ui
         def banner_outbreak():
-            return section_banner("=¨", t("outbreak_title"),
+            return section_banner("ğŸš¨", t("outbreak_title"),
                                   t("outbreak_subtitle"), color="#dc3545")
         
         # ---- Export toolbar (PowerPoint + CSV) ----
@@ -1563,11 +1563,11 @@ with ui.navset_card_tab(id="main_tabs"):
                     margin: -8px 0 12px 0;">
           <button type="button" class="btn btn-outline-primary btn-sm"
                   onclick="exportTabToPPTX('Outbreak Response')">
-            =å Export visuals to PowerPoint
+            ğŸ“¥ Export visuals to PowerPoint
           </button>
           <button type="button" class="btn btn-outline-secondary btn-sm"
                   onclick="exportTablesToCSV('Outbreak Response')">
-            =Ê Export tables to CSV
+            ğŸ“Š Export tables to CSV
           </button>
         </div>
         """)
@@ -1575,38 +1575,38 @@ with ui.navset_card_tab(id="main_tabs"):
         # ----- KPI strip -----
         with ui.layout_columns(col_widths=[4, 4, 4], fill=False):
 
-            with ui.value_box(showcase=ui.HTML("=â"), theme="bg-gradient-teal-green"):
+            with ui.value_box(showcase=ui.HTML("ğŸŸ¢"), theme="bg-gradient-teal-green"):
                 @render.text
                 def lbl_kpi_ready(): return t("kpi_ready")
                 @render.text
                 def kpi_ready():
                     d = latest_per_facility()
-                    if d.empty or SCORE_TOTAL not in d.columns: return ""
+                    if d.empty or SCORE_TOTAL not in d.columns: return "â€”"
                     s = d[SCORE_TOTAL].dropna()
-                    if s.empty: return ""
+                    if s.empty: return "â€”"
                     return f"{int((s >= READY_THRESHOLD).sum())} / {len(s)}"
 
-            with ui.value_box(showcase=ui.HTML("=á"), theme="bg-gradient-orange-red"):
+            with ui.value_box(showcase=ui.HTML("ğŸŸ¡"), theme="bg-gradient-orange-red"):
                 @render.text
                 def lbl_kpi_at_risk(): return t("kpi_at_risk")
                 @render.text
                 def kpi_at_risk():
                     d = latest_per_facility()
-                    if d.empty or SCORE_TOTAL not in d.columns: return ""
+                    if d.empty or SCORE_TOTAL not in d.columns: return "â€”"
                     s = d[SCORE_TOTAL].dropna()
-                    if s.empty: return ""
+                    if s.empty: return "â€”"
                     n = int(((s > CRITICAL_THRESHOLD) & (s < READY_THRESHOLD)).sum())
                     return f"{n} / {len(s)}"
 
-            with ui.value_box(showcase=ui.HTML("=4"), theme="bg-gradient-red-orange"):
+            with ui.value_box(showcase=ui.HTML("ğŸ”´"), theme="bg-gradient-red-orange"):
                 @render.text
                 def lbl_kpi_critical(): return t("kpi_critical")
                 @render.text
                 def kpi_critical():
                     d = latest_per_facility()
-                    if d.empty or SCORE_TOTAL not in d.columns: return ""
+                    if d.empty or SCORE_TOTAL not in d.columns: return "â€”"
                     s = d[SCORE_TOTAL].dropna()
-                    if s.empty: return ""
+                    if s.empty: return "â€”"
                     return f"{int((s <= CRITICAL_THRESHOLD).sum())} / {len(s)}"
 
         # ----- Outbreak Readiness Index -----
@@ -1636,9 +1636,9 @@ with ui.navset_card_tab(id="main_tabs"):
                     if s < READY_THRESHOLD:     return COLOR_AT_RISK
                     return COLOR_READY
                 def _band_emoji(s):
-                    if s <= CRITICAL_THRESHOLD: return "=4"
-                    if s < READY_THRESHOLD:     return "=á"
-                    return "=â"
+                    if s <= CRITICAL_THRESHOLD: return "ğŸ”´"
+                    if s < READY_THRESHOLD:     return "ğŸŸ¡"
+                    return "ğŸŸ¢"
 
                 fig = go.Figure(go.Bar(
                     x=d[SCORE_TOTAL], y=d[FACILITY_COL], orientation="h",
@@ -1706,7 +1706,7 @@ with ui.navset_card_tab(id="main_tabs"):
                 for fac, row in latest.iterrows():
                     cells = [ui.tags.th(str(fac), scope="row")]
                     for v in row:
-                        txt = "" if pd.isna(v) else f"{v:.0f}"
+                        txt = "â€”" if pd.isna(v) else f"{v:.0f}"
                         color = "#6c757d" if pd.isna(v) else "#fff"
                         cells.append(ui.tags.td(
                             txt, style=f"background:{cell_color(v)};color:{color};"))
@@ -1831,13 +1831,13 @@ with ui.navset_card_tab(id="main_tabs"):
 
 
     # =================================================================
-    #                       < Summary VIEW TAB
+    #                       ğŸŒ Summary VIEW TAB
     # =================================================================
-    with ui.nav_panel("< Summary View"):
+    with ui.nav_panel("ğŸŒ Summary View"):
 
         @render.ui
         def banner_network():
-            return section_banner("<", t("network_title"),
+            return section_banner("ğŸŒ", t("network_title"),
                                   t("network_subtitle"), color="#0d6efd")
 
         # ---- Export toolbar (PowerPoint + CSV) ----
@@ -1846,11 +1846,11 @@ with ui.navset_card_tab(id="main_tabs"):
                     margin: -8px 0 12px 0;">
           <button type="button" class="btn btn-outline-primary btn-sm"
                   onclick="exportTabToPPTX('Summary View')">
-            =å Export visuals to PowerPoint
+            ğŸ“¥ Export visuals to PowerPoint
           </button>
           <button type="button" class="btn btn-outline-secondary btn-sm"
                   onclick="exportTablesToCSV('Summary View')">
-            =Ê Export tables to CSV
+            ğŸ“Š Export tables to CSV
           </button>
         </div>
         """)
@@ -1859,75 +1859,75 @@ with ui.navset_card_tab(id="main_tabs"):
         with ui.div(class_="kpi-strip"):
             with ui.layout_columns(col_widths=[3, 3, 3, 3], fill=False):
 
-                with ui.value_box(showcase=ui.HTML("<å"), theme="primary"):
+                with ui.value_box(showcase=ui.HTML("ğŸ¥"), theme="primary"):
                     @render.text
                     def lbl_kpi_n_facilities(): return t("kpi_facilities_tracked")
                     @render.text
                     def kpi_n_facilities():
                         df = filtered_data()
-                        return "" if df is None or df.empty else f"{df[FACILITY_COL].nunique():,}"
+                        return "â€”" if df is None or df.empty else f"{df[FACILITY_COL].nunique():,}"
 
-                with ui.value_box(showcase=ui.HTML("="),
+                with ui.value_box(showcase=ui.HTML("ğŸ”"),
                                   theme="bg-gradient-indigo-purple"):
                     @render.text
                     def lbl_kpi_avg_n(): return t("kpi_avg_assessments")
                     @render.text
                     def kpi_avg_n():
                         df = filtered_data()
-                        if df is None or df.empty: return ""
+                        if df is None or df.empty: return "â€”"
                         return f"{df.groupby(FACILITY_COL).size().mean():.1f}"
 
-                with ui.value_box(showcase=ui.HTML("=È"),
+                with ui.value_box(showcase=ui.HTML("ğŸ“ˆ"),
                                   theme="bg-gradient-teal-green"):
                     @render.text
                     def lbl_kpi_delta(): return t("kpi_median_delta")
                     @render.text
                     def kpi_delta_total():
                         df = filtered_data()
-                        if df is None or df.empty or SCORE_TOTAL not in df.columns: return ""
+                        if df is None or df.empty or SCORE_TOTAL not in df.columns: return "â€”"
                         _, _, delta = first_last_per_facility(df, [SCORE_TOTAL])
                         v = delta[SCORE_TOTAL].median()
-                        return "" if pd.isna(v) else f"{v:+.1f}"
+                        return "â€”" if pd.isna(v) else f"{v:+.1f}"
 
-                with ui.value_box(showcase=ui.HTML("=Å"),
+                with ui.value_box(showcase=ui.HTML("ğŸ“…"),
                                   theme="bg-gradient-blue-cyan"):
                     @render.text
                     def lbl_kpi_followup(): return t("kpi_median_followup")
                     @render.text
                     def kpi_followup():
                         df = filtered_data()
-                        if df is None or df.empty: return ""
+                        if df is None or df.empty: return "â€”"
                         span = df.groupby(FACILITY_COL)["Days Since Baseline"].max()
                         return f"{span.median():.0f}"
                         
         with ui.layout_columns(col_widths=[4, 4, 4], fill=False):
         
-                with ui.value_box(showcase=ui.HTML("=Ê"), theme="bg-gradient-yellow-orange"):
+                with ui.value_box(showcase=ui.HTML("ğŸ“Š"), theme="bg-gradient-yellow-orange"):
                     @render.text
                     def lbl_kpi_total_assessments(): return t("kpi_total_assessments")
                     @render.text
                     def kpi_total_assessments():
                         df = filtered_data()
-                        if df is None or df.empty: return ""
+                        if df is None or df.empty: return "â€”"
                         return f"{len(df):,}"
         
-                with ui.value_box(showcase=ui.HTML("=Ó"), theme="bg-gradient-blue-cyan"):
+                with ui.value_box(showcase=ui.HTML("ğŸ—“ï¸"), theme="bg-gradient-blue-cyan"):
                     @render.text
                     def lbl_kpi_total_30d(): return t("kpi_total_30d")
                     @render.text
                     def kpi_total_30d():
                         df = filtered_data()
-                        if df is None or df.empty or DATE_COL not in df.columns: return ""
+                        if df is None or df.empty or DATE_COL not in df.columns: return "â€”"
                         cutoff = pd.Timestamp.now().normalize() - pd.Timedelta(days=30)
                         return f"{int((df[DATE_COL] >= cutoff).sum()):,}"
         
-                with ui.value_box(showcase=ui.HTML("=P"), theme="bg-gradient-purple-pink"):
+                with ui.value_box(showcase=ui.HTML("ğŸ•"), theme="bg-gradient-purple-pink"):
                     @render.text
                     def lbl_kpi_total_7d(): return t("kpi_total_7d")
                     @render.text
                     def kpi_total_7d():
                         df = filtered_data()
-                        if df is None or df.empty or DATE_COL not in df.columns: return ""
+                        if df is None or df.empty or DATE_COL not in df.columns: return "â€”"
                         cutoff = pd.Timestamp.now().normalize() - pd.Timedelta(days=7)
                         return f"{int((df[DATE_COL] >= cutoff).sum()):,}"
         
@@ -1945,8 +1945,8 @@ with ui.navset_card_tab(id="main_tabs"):
 
             ui.input_radio_buttons(            
                 "trend_filter", None,
-                {"all": "All", "up": "=È Increasing",
-                 "down": "=É Decreasing", "flat": "¡ Static"},
+                {"all": "All", "up": "ğŸ“ˆ Increasing",
+                 "down": "ğŸ“‰ Decreasing", "flat": "â¡ï¸ Static"},
                 selected="all", inline=True,
             )
 
@@ -1956,7 +1956,7 @@ with ui.navset_card_tab(id="main_tabs"):
                 if df is None or df.empty or SCORE_TOTAL not in df.columns:
                     return go.Figure()
                 
-                # ---- Trend filter (first ’ last total score change) ----
+                # ---- Trend filter (first â†’ last total score change) ----
                 tf = input.trend_filter()
                 if tf and tf != "all":
                     _, _, delta = first_last_per_facility(df, [SCORE_TOTAL])
@@ -2017,7 +2017,7 @@ with ui.navset_card_tab(id="main_tabs"):
                 vmax = max(abs(float(delta.values.min())), abs(float(delta.values.max())), 1)
                 fig = px.imshow(delta, color_continuous_scale="RdYlGn",
                                 zmin=-vmax, zmax=vmax, aspect="auto",
-                                labels=dict(color="” " + t("col_score")), text_auto=".0f")
+                                labels=dict(color="Î” " + t("col_score")), text_auto=".0f")
                 fig.update_layout(margin=dict(l=10,r=10,t=30,b=10),
                                   height=max(400, len(delta)*28 + 150),
                                   xaxis_title="", yaxis_title="")
@@ -2051,7 +2051,7 @@ with ui.navset_card_tab(id="main_tabs"):
                     out[t("col_delta_total")]    = (pd.Series(last) - pd.Series(first)).round(1).values
 
                     def _status(v):
-                        if pd.isna(v): return ""
+                        if pd.isna(v): return "â€”"
                         if v <= CRITICAL_THRESHOLD: return t("status_critical_short")
                         if v < READY_THRESHOLD:    return t("status_at_risk_short")
                         return t("status_ready_short")
@@ -2061,13 +2061,13 @@ with ui.navset_card_tab(id="main_tabs"):
 
 
     # =================================================================
-    #                  <å FACILITY DEEP DIVE TAB
+    #                  ğŸ¥ FACILITY DEEP DIVE TAB
     # =================================================================
-    with ui.nav_panel("<å Facility Deep Dive"):
+    with ui.nav_panel("ğŸ¥ Facility Deep Dive"):
 
         @render.ui
         def banner_deep_dive():
-            return section_banner("<å", t("deep_dive_title"),
+            return section_banner("ğŸ¥", t("deep_dive_title"),
                                   t("deep_dive_subtitle"), color="#198754")
         
         # ---- Export toolbar (PowerPoint + CSV) ----
@@ -2076,11 +2076,11 @@ with ui.navset_card_tab(id="main_tabs"):
                     margin: -8px 0 12px 0;">
           <button type="button" class="btn btn-outline-primary btn-sm"
                   onclick="exportTabToPPTX('Facility Deep Dive')">
-            =å Export visuals to PowerPoint
+            ğŸ“¥ Export visuals to PowerPoint
           </button>
           <button type="button" class="btn btn-outline-secondary btn-sm"
                   onclick="exportTablesToCSV('Facility Deep Dive')">
-            =Ê Export tables to CSV
+            ğŸ“Š Export tables to CSV
           </button>
         </div>
         """)
@@ -2088,45 +2088,45 @@ with ui.navset_card_tab(id="main_tabs"):
         with ui.card(class_="mb-3 deep-dive-controls",
                      style="background:#f3faf5; border-left:4px solid #198754;"):
             with ui.layout_columns(col_widths=[6, 6]):
-                ui.input_selectize("detail_facility", "<å Facility to Inspect",
+                ui.input_selectize("detail_facility", "ğŸ¥ Facility to Inspect",
                                    choices=[], multiple=False)
                 ui.input_selectize("detail_assessment",
-                                   "=Ë Specific Assessment (defaults to most recent)",
+                                   "ğŸ“‹ Specific Assessment (defaults to most recent)",
                                    choices=[], multiple=False)
         # ---- KPI strip: assessment activity for the selected facility ----
         with ui.layout_columns(col_widths=[4, 4, 4], fill=False):
         
-            with ui.value_box(showcase=ui.HTML("=Ë"), theme="primary"):
+            with ui.value_box(showcase=ui.HTML("ğŸ“‹"), theme="primary"):
                 @render.text
                 def lbl_kpi_since_baseline(): return t("kpi_since_baseline")
                 @render.text
                 def kpi_since_baseline():
                     df = filtered_data()
                     fac = input.detail_facility()
-                    if df is None or df.empty or not fac: return ""
+                    if df is None or df.empty or not fac: return "â€”"
                     sub = df[df[FACILITY_COL].astype(str) == str(fac)]
                     return f"{len(sub):,}"
         
-            with ui.value_box(showcase=ui.HTML("=Ó"), theme="bg-gradient-blue-cyan"):
+            with ui.value_box(showcase=ui.HTML("ğŸ—“ï¸"), theme="bg-gradient-blue-cyan"):
                 @render.text
                 def lbl_kpi_30d(): return t("kpi_30d")
                 @render.text
                 def kpi_30d():
                     df = filtered_data()
                     fac = input.detail_facility()
-                    if df is None or df.empty or not fac: return ""
+                    if df is None or df.empty or not fac: return "â€”"
                     sub = df[df[FACILITY_COL].astype(str) == str(fac)]
                     cutoff = pd.Timestamp.now().normalize() - pd.Timedelta(days=30)
                     return f"{int((sub[DATE_COL] >= cutoff).sum()):,}"
         
-            with ui.value_box(showcase=ui.HTML("=P"), theme="bg-gradient-purple-pink"):
+            with ui.value_box(showcase=ui.HTML("ğŸ•"), theme="bg-gradient-purple-pink"):
                 @render.text
                 def lbl_kpi_7d(): return t("kpi_7d")
                 @render.text
                 def kpi_7d():
                     df = filtered_data()
                     fac = input.detail_facility()
-                    if df is None or df.empty or not fac: return ""
+                    if df is None or df.empty or not fac: return "â€”"
                     sub = df[df[FACILITY_COL].astype(str) == str(fac)]
                     cutoff = pd.Timestamp.now().normalize() - pd.Timedelta(days=7)
                     return f"{int((sub[DATE_COL] >= cutoff).sum()):,}"
@@ -2241,14 +2241,14 @@ with ui.navset_card_tab(id="main_tabs"):
                         if pd.notna(score) and pd.notna(base) and not is_baseline:
                             diff_str = f"{float(score) - float(base):+.1f}"
                         else:
-                            diff_str = ""
+                            diff_str = "â€”"
                         if pd.notna(score):
                             s = float(score)
                             if s <= CRITICAL_THRESHOLD: status = t("status_critical_short")
                             elif s < READY_THRESHOLD:   status = t("status_at_risk_short")
                             else:                       status = t("status_ready_short")
                         else:
-                            status = ""
+                            status = "â€”"
                         records.append({
                             t("col_component"): (t("label_total_score")
                                                  if c == SCORE_TOTAL
@@ -2304,7 +2304,7 @@ with ui.navset_card_tab(id="main_tabs"):
                     x=values, y=labels, orientation="h",
                     marker=dict(color=colors, line=dict(color="white", width=1)),
                     text=[f"{v:+.1f}" for v in values], textposition="outside",
-                    hovertemplate="<b>%{y}</b><br>” %{x:+.1f}<extra></extra>",
+                    hovertemplate="<b>%{y}</b><br>Î” %{x:+.1f}<extra></extra>",
                     cliponaxis=False,
                 ))
                 fig.add_vline(x=0, line_color="#2c3e50", line_width=2)
