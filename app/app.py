@@ -150,6 +150,8 @@ TRANSLATIONS = {
         "trend_up": "📈 Increasing",
         "trend_down": "📉 Decreasing",
         "trend_flat": "➡️ Static",
+        "start_date_label": "📅 Include data on/after",
+
         
 
     },
@@ -275,6 +277,8 @@ TRANSLATIONS = {
         "trend_up": "📈 En hausse",
         "trend_down": "📉 En baisse",
         "trend_flat": "➡️ Stable",
+        "start_date_label": "📅 Inclure les données à partir du",
+
         
 
     },
@@ -400,6 +404,8 @@ TRANSLATIONS = {
         "trend_up": "📈 En aumento",
         "trend_down": "📉 En descenso",
         "trend_flat": "➡️ Estable",
+        "start_date_label": "📅 Incluir datos desde",
+
     },
 }
 
@@ -956,6 +962,11 @@ def _update_facilities():
 def filtered_data():
     df = raw_data()
     if df is None: return None
+
+    # Global date cutoff: keep assessments on/after the selected date
+    sd = input.start_date()
+    if sd is not None and DATE_COL in df.columns:
+        df = df[df[DATE_COL] >= pd.Timestamp(sd)]
     
     # Province → District → Subdistrict → Level
     df = _apply_cascade(df, CASCADE_LEVELS)
@@ -985,6 +996,21 @@ def _init_baseline_date():
     if pd.notna(earliest):
         ui.update_date("baseline_date", value=earliest.date())
         _baseline_initialized.set(True)
+
+#Start Date reactive effect
+_start_date_initialized = reactive.value(False)
+
+@reactive.effect
+def _init_start_date():
+    if _start_date_initialized.get():
+        return
+    df = raw_data()
+    if df is None or df.empty or DATE_COL not in df.columns:
+        return
+    earliest = df[DATE_COL].dropna().min()
+    if pd.notna(earliest):
+        ui.update_date("start_date", value=earliest.date())
+        _start_date_initialized.set(True)
 
 @reactive.effect
 def _update_assessments():
@@ -1075,6 +1101,9 @@ def _retranslate_inputs():
     
     # Date input
     try: ui.update_date("baseline_date", label=t("baseline_date_label"))
+    except Exception: pass
+
+    try: ui.update_date("start_date", label=t("start_date_label"))
     except Exception: pass
     
     # Slider
@@ -1474,6 +1503,9 @@ with ui.sidebar(width=380, open="open"):
                  "num":  "Assessment #"},
                 selected="days",
             )
+            
+            ui.input_date("start_date", "📅 Include data on/after", value=None)
+
             # NEW: geographic filters (default to all)
             ui.input_selectize("province",    "🗺️ Province",       choices=[], multiple=False)
             ui.input_selectize("district",    "🗺️ District",       choices=[], multiple=False)
