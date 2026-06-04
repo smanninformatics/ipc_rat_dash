@@ -1,0 +1,59 @@
+name: Deploy Shinylive app
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  SHINYLIVE_VERSION: "0.10.4"   # ← set to your `pip show shinylive` version
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install shinylive
+        run: pip install "shinylive==${{ env.SHINYLIVE_VERSION }}"
+
+      # Cache the downloaded Pyodide/web assets so rebuilds are fast
+      - name: Cache shinylive assets
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/shinylive
+          key: shinylive-${{ runner.os }}-${{ env.SHINYLIVE_VERSION }}
+
+      - name: Export app
+        run: |
+          shinylive export app _site
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
