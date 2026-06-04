@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  SHINYLIVE_VERSION: "0.10.4"   # ← set to your `pip show shinylive` version
+  SHINYLIVE_VERSION: "0.8.9"   # ← set to your `pip show shinylive` version
 
 jobs:
   build:
