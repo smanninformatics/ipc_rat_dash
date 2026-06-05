@@ -50,7 +50,7 @@ TRANSLATIONS = {
         "assessment_num": "Assessment #",
         "facilities": "Facilities",
         "components": "Components",
-        "critical_components": "Outbreak-Critical Components",
+        "critical_components": "Outbreak-Assessment Domains",
         "thresholds_info": "Unified thresholds: 🔴 ≤ 50, 🟡 51–79, 🟢 ≥ 80",
         "district": "🗺️ District",
         "subdistrict": "🗺️ Subdistrict",
@@ -59,7 +59,7 @@ TRANSLATIONS = {
         "network_title": "Summary View",
         "network_subtitle": "Multi-facility trajectories anchored to each facility's first assessment",
         "outbreak_title": "Outbreak Response",
-        "outbreak_subtitle": "Live triage view — who can safely receive cases, where to send response teams",
+        "outbreak_subtitle": "",
         "deep_dive_title": "Facility Deep Dive",
         "deep_dive_subtitle": "Detailed inspection of a single facility — change selection in the sidebar",
 
@@ -70,24 +70,24 @@ TRANSLATIONS = {
         "kpi_ready": "Ready Facilities",
         "kpi_at_risk": "At Risk",
         "kpi_critical": "Critical",
-        "kpi_bundle": "Bundle Compliant",
+        #"kpi_bundle": "Bundle Compliant",
 
         "card_total_traj": "📈 Total Score Trajectory — One Line per Facility",
         "card_delta_heatmap": "🟥🟩 Change from Baseline — Latest minus First Score",
         "card_summary": "📋 Facility Progress Summary (Baseline → Latest)",
         "card_readiness_index": "🚦 Outbreak Readiness Index — Latest Snapshot",
-        "card_bundle_grid": "🟢🟡🔴 Critical Bundle Compliance",
+        "card_bundle_grid": "🟢🟡🔴 Assessment Domain Scores",
         "card_facility_map": "🗺️ Facility Map — Readiness by Location",
         "card_dispatch": "📋 Dispatch Decision Table",
         "card_snapshot": "📊 Single Assessment Snapshot",
-        "card_diverging": "📊 Component Change Since Baseline — Diverging View",
+        "card_diverging": "📊 Domain Change Since Baseline — Diverging View",
 
-        "desc_total_traj": "Dashed lines mark the readiness bands: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
+        "desc_total_traj": "Dashed lines mark the score thresholds: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
         "desc_readiness_index": "Latest total score from each facility's most recent assessment.",
-        "desc_bundle_grid": "One row per facility, one column per outbreak-critical component. Cells colored using global thresholds.",
-        "desc_facility_map": "Each dot = one facility. Color = current readiness band; size scales with score. Requires latitude/longitude columns.",
-        "desc_dispatch": "Sortable facility list with bundle status and specific gaps. Filter / export for SitReps and team briefings.",
-        "desc_snapshot": "All component scores for the selected assessment. Dashed lines mark thresholds (🔴 ≤ 50, 🟢 ≥ 80).",
+        "desc_bundle_grid": "One row per facility, one column per outbreak-critical component. Cells colored using score thresholds: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
+        "desc_facility_map": "Color = total score thresholds: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.; size scales with score. Requires latitude/longitude columns.",
+        "desc_dispatch": "Sortable facility list with facility status and specific gaps.",
+        "desc_snapshot": "All domain scores for the selected assessment. Dashed lines mark score thresholds (🔴 ≤ 50, 🟢 ≥ 80).",
         "desc_diverging": "Red = regressions, green = improvements. Sorted biggest loss → biggest gain.",
 
         "facility_inspect": "🏥 Facility to Inspect",
@@ -95,7 +95,7 @@ TRANSLATIONS = {
 
         "map_no_data": "No data loaded. Upload a CSV or fetch from Kobo to begin.",
         "map_no_coords": "🗺️ Map unavailable — facility coordinates not found.",
-        "map_no_critical": "Select at least one outbreak-critical component.",
+        "map_no_critical": "Select at least one outbreak-assessment domain.",
         "map_no_valid": "Coordinate columns are present but contain no valid points yet.",
 
         "status_critical_short": "🔴 Critical",
@@ -112,11 +112,11 @@ TRANSLATIONS = {
         "col_delta_total": "Δ Total",
         "col_latest_status": "Latest Status",
         "col_readiness": "Readiness",
-        "col_bundle_compliant": "Bundle Compliant",
+        "col_bundle_compliant": "Score Compliant",
         "col_critical_gaps": "Critical Gaps",
         "col_last_assessed": "Last Assessed",
         "col_status": "Status",
-        "col_component": "Component",
+        "col_component": "Domain",
         "col_score": "Score",
         "col_delta_baseline": "Δ from Baseline",
         "label_total_score": "TOTAL SCORE",
@@ -178,7 +178,7 @@ TRANSLATIONS = {
         "assessment_num": "N° d'évaluation",
         "facilities": "Établissements",
         "components": "Composants",
-        "critical_components": "Composants critiques d'épidémie",
+        "critical_components": "Domaines d'évaluation de l'épidémie",
         "thresholds_info": "Seuils unifiés : 🔴 ≤ 50, 🟡 51–79, 🟢 ≥ 80",
         "district": "🗺️ District",
         "subdistrict": "🗺️ Sous-district",
@@ -187,7 +187,7 @@ TRANSLATIONS = {
         "network_title": "Vue réseau",
         "network_subtitle": "Trajectoires multi-établissements ancrées à la première évaluation",
         "outbreak_title": "Réponse aux épidémies",
-        "outbreak_subtitle": "Vue de triage en temps réel — qui peut recevoir des cas, où envoyer les équipes",
+        "outbreak_subtitle": "",
         "deep_dive_title": "Analyse détaillée d'un établissement",
         "deep_dive_subtitle": "Inspection détaillée d'un établissement — changer la sélection dans la barre latérale",
 
@@ -198,24 +198,24 @@ TRANSLATIONS = {
         "kpi_ready": "Établissements prêts",
         "kpi_at_risk": "À risque",
         "kpi_critical": "Critique",
-        "kpi_bundle": "Bundle conforme",
+        #"kpi_bundle": "Bundle conforme",
 
         "card_total_traj": "📈 Trajectoire du score total — Une ligne par établissement",
         "card_delta_heatmap": "🟥🟩 Évolution depuis le départ — Dernier moins premier score",
         "card_summary": "📋 Résumé des progrès par établissement (Initial → Dernier)",
         "card_readiness_index": "🚦 Indice de préparation aux épidémies — Dernier instantané",
-        "card_bundle_grid": "🟢🟡🔴 Conformité du bundle critique",
+        "card_bundle_grid": "🟢🟡🔴 Scores par domaine d'évaluation",
         "card_facility_map": "🗺️ Carte des établissements — Préparation par emplacement",
         "card_dispatch": "📋 Tableau de décision de déploiement",
         "card_snapshot": "📊 Instantané d'une évaluation",
-        "card_diverging": "📊 Évolution depuis le départ — Vue divergente",
+        "card_diverging": "📊 Évolution des domaines depuis le départ — Vue divergente",
 
-        "desc_total_traj": "Les lignes pointillées marquent les seuils : 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
+        "desc_total_traj": "Les lignes pointillées marquent les seuils de score : 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
         "desc_readiness_index": "Score total le plus récent de chaque établissement.",
-        "desc_bundle_grid": "Une ligne par établissement, une colonne par composant critique. Cellules colorées selon les seuils globaux.",
-        "desc_facility_map": "Chaque point = un établissement. Couleur = niveau de préparation actuel ; taille = score. Nécessite latitude/longitude.",
-        "desc_dispatch": "Liste triable des établissements avec statut et lacunes. Filtrer/exporter pour les SitReps.",
-        "desc_snapshot": "Tous les scores pour l'évaluation sélectionnée. Lignes pointillées = seuils (🔴 ≤ 50, 🟢 ≥ 80).",
+        "desc_bundle_grid": "Une ligne par établissement, une colonne par composant critique. Cellules colorées selon les seuils de score : 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
+        "desc_facility_map": "Couleur = seuils de score total : 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80 ; la taille varie selon le score. Nécessite des colonnes latitude/longitude.",
+        "desc_dispatch": "Liste triable des établissements avec le statut de l'établissement et les lacunes spécifiques.",
+        "desc_snapshot": "Tous les scores par domaine pour l'évaluation sélectionnée. Les lignes pointillées marquent les seuils de score (🔴 ≤ 50, 🟢 ≥ 80).",
         "desc_diverging": "Rouge = régressions, vert = améliorations. Trié de la plus grande perte au plus grand gain.",
 
         "facility_inspect": "🏥 Établissement à inspecter",
@@ -223,7 +223,7 @@ TRANSLATIONS = {
 
         "map_no_data": "Aucune donnée chargée. Téléversez un CSV ou récupérez depuis Kobo.",
         "map_no_coords": "🗺️ Carte indisponible — coordonnées introuvables.",
-        "map_no_critical": "Sélectionnez au moins un composant critique.",
+        "map_no_critical": "Sélectionnez au moins un domaine d'évaluation de l'épidémie.",
         "map_no_valid": "Les colonnes de coordonnées existent mais ne contiennent pas de points valides.",
 
         "status_critical_short": "🔴 Critique",
@@ -240,11 +240,11 @@ TRANSLATIONS = {
         "col_delta_total": "Δ Total",
         "col_latest_status": "Statut actuel",
         "col_readiness": "Préparation",
-        "col_bundle_compliant": "Bundle conforme",
+        "col_bundle_compliant": "Score conforme",
         "col_critical_gaps": "Lacunes critiques",
         "col_last_assessed": "Dernière évaluation",
         "col_status": "Statut",
-        "col_component": "Composant",
+        "col_component": "Domaine",
         "col_score": "Score",
         "col_delta_baseline": "Δ depuis l'initial",
         "label_total_score": "SCORE TOTAL",
@@ -305,7 +305,7 @@ TRANSLATIONS = {
         "assessment_num": "N° de evaluación",
         "facilities": "Instalaciones",
         "components": "Componentes",
-        "critical_components": "Componentes críticos del brote",
+        "critical_components": "Dominios de evaluación del brote",
         "thresholds_info": "Umbrales unificados: 🔴 ≤ 50, 🟡 51–79, 🟢 ≥ 80",
         "district": "🗺️ Distrito",
         "subdistrict": "🗺️ Subdistrito",
@@ -314,7 +314,7 @@ TRANSLATIONS = {
         "network_title": "Vista de red",
         "network_subtitle": "Trayectorias multi-instalación ancladas a la primera evaluación de cada una",
         "outbreak_title": "Respuesta al brote",
-        "outbreak_subtitle": "Vista de triaje en vivo — quién puede recibir casos, dónde enviar equipos",
+        "outbreak_subtitle": "",
         "deep_dive_title": "Análisis detallado de instalación",
         "deep_dive_subtitle": "Inspección detallada de una sola instalación — cambie la selección en la barra lateral",
 
@@ -325,24 +325,24 @@ TRANSLATIONS = {
         "kpi_ready": "Instalaciones listas",
         "kpi_at_risk": "En riesgo",
         "kpi_critical": "Crítico",
-        "kpi_bundle": "Bundle conforme",
+        #"kpi_bundle": "Bundle conforme",
 
         "card_total_traj": "📈 Trayectoria del puntaje total — Una línea por instalación",
         "card_delta_heatmap": "🟥🟩 Cambio desde el inicio — Último menos primer puntaje",
         "card_summary": "📋 Resumen de progreso por instalación (Inicial → Último)",
         "card_readiness_index": "🚦 Índice de preparación ante brotes — Última instantánea",
-        "card_bundle_grid": "🟢🟡🔴 Cumplimiento del bundle crítico",
+        "card_bundle_grid": "🟢🟡🔴 Puntajes por dominio de evaluación",
         "card_facility_map": "🗺️ Mapa de instalaciones — Preparación por ubicación",
         "card_dispatch": "📋 Tabla de decisión de despliegue",
         "card_snapshot": "📊 Instantánea de una evaluación",
-        "card_diverging": "📊 Cambio desde el inicio — Vista divergente",
+        "card_diverging": "📊 Cambio de dominios desde el inicio — Vista divergente",
 
-        "desc_total_traj": "Líneas discontinuas marcan los umbrales: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
+        "desc_total_traj": "Las líneas discontinuas marcan los umbrales de puntaje: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
         "desc_readiness_index": "Puntaje total más reciente de cada instalación.",
-        "desc_bundle_grid": "Una fila por instalación, una columna por componente crítico. Celdas coloreadas según los umbrales globales.",
-        "desc_facility_map": "Cada punto = una instalación. Color = nivel de preparación; tamaño = puntaje. Requiere latitud/longitud.",
-        "desc_dispatch": "Lista ordenable con estado y brechas. Filtrar/exportar para SitReps y reuniones.",
-        "desc_snapshot": "Todos los puntajes de la evaluación seleccionada. Líneas discontinuas = umbrales (🔴 ≤ 50, 🟢 ≥ 80).",
+        "desc_bundle_grid": "Una fila por instalación, una columna por componente crítico. Celdas coloreadas según los umbrales de puntaje: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
+        "desc_facility_map": "Color = umbrales de puntaje total: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80; el tamaño varía según el puntaje. Requiere columnas de latitud/longitud.",
+        "desc_dispatch": "Lista ordenable de instalaciones con el estado de la instalación y las brechas específicas.",
+        "desc_snapshot": "Todos los puntajes por dominio de la evaluación seleccionada. Las líneas discontinuas marcan los umbrales de puntaje (🔴 ≤ 50, 🟢 ≥ 80).",
         "desc_diverging": "Rojo = regresiones, verde = mejoras. Ordenado de mayor pérdida a mayor ganancia.",
 
         "facility_inspect": "🏥 Instalación a inspeccionar",
@@ -350,7 +350,7 @@ TRANSLATIONS = {
 
         "map_no_data": "No hay datos cargados. Suba un CSV u obtenga datos de Kobo.",
         "map_no_coords": "🗺️ Mapa no disponible — coordenadas no encontradas.",
-        "map_no_critical": "Seleccione al menos un componente crítico.",
+        "map_no_critical": "Seleccione al menos un dominio de evaluación del brote.",
         "map_no_valid": "Las columnas de coordenadas existen pero no contienen puntos válidos.",
 
         "status_critical_short": "🔴 Crítico",
@@ -367,11 +367,11 @@ TRANSLATIONS = {
         "col_delta_total": "Δ Total",
         "col_latest_status": "Estado actual",
         "col_readiness": "Preparación",
-        "col_bundle_compliant": "Bundle conforme",
+        "col_bundle_compliant": "Puntaje conforme",
         "col_critical_gaps": "Brechas críticas",
         "col_last_assessed": "Última evaluación",
         "col_status": "Estado",
-        "col_component": "Componente",
+        "col_component": "Dominio",
         "col_score": "Puntaje",
         "col_delta_baseline": "Δ desde el inicio",
         "label_total_score": "PUNTAJE TOTAL",
@@ -1109,14 +1109,7 @@ def _retranslate_inputs():
     # Slider
     try: ui.update_slider("baseline_buffer_weeks", label=t("buffer_weeks_label"))
     except Exception: pass
-    #Component Translate
-    try:
-        ui.update_selectize(
-            "components",
-            choices={c: cl[c] for c in COMPONENT_COLS},
-            selected=list(input.components() or COMPONENT_COLS),
-        )
-    except Exception: pass
+
     #Critical Component Translate
     try:
         ui.update_selectize(
@@ -1512,11 +1505,7 @@ with ui.sidebar(width=380, open="open"):
             ui.input_selectize("subdistrict", "🗺️ Subdistrict",    choices=[], multiple=False)
             ui.input_selectize("level",       "🏷️ Facility Level", choices=[], multiple=False)
             ui.input_selectize("facilities",  "Facilities",        choices=[], multiple=True)
-            ui.input_selectize(
-                "components", "Components",
-                choices={c: COMPONENT_LABELS[c] for c in COMPONENT_COLS},
-                selected=COMPONENT_COLS, multiple=True,
-            )
+
 
             ui.hr()
 
@@ -2042,7 +2031,7 @@ with ui.navset_card_tab(id="main_tabs"):
                 df = filtered_data()
                 labels = component_labels()
                 if df is None or df.empty: return go.Figure()
-                cols = [c for c in (input.components() or COMPONENT_COLS) if c in df.columns]
+                cols = [c for c in COMPONENT_COLS if c in df.columns]
                 if not cols: return go.Figure()
                 _, _, delta = first_last_per_facility(df, cols)
                 delta.columns = [labels.get(c,c) for c in delta.columns]
@@ -2193,7 +2182,7 @@ with ui.navset_card_tab(id="main_tabs"):
                     except (ValueError, IndexError):
                         return go.Figure()
 
-                    cols = [c for c in (input.components() or COMPONENT_COLS) if c in df.columns]
+                    cols = [c for c in COMPONENT_COLS if c in df.columns]
                     scores = row[cols].astype(float).dropna().sort_values()
                     if scores.empty:
                         return go.Figure()
@@ -2320,7 +2309,7 @@ with ui.navset_card_tab(id="main_tabs"):
                             font=dict(size=14, color="gray"))],
                         height=500,
                     )
-                cols = [c for c in (input.components() or COMPONENT_COLS) if c in df.columns]
+                cols = [c for c in COMPONENT_COLS if c in df.columns]
                 if not cols: return go.Figure()
                 first = sub.iloc[0][cols].astype(float)
                 last  = sub.iloc[-1][cols].astype(float)
