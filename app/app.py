@@ -84,7 +84,7 @@ TRANSLATIONS = {
 
         "desc_total_traj": "Dashed lines mark the score thresholds: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
         "desc_readiness_index": "Latest total score from each facility's most recent assessment.",
-        "desc_bundle_grid": "One row per facility, one column per outbreak-critical component. Cells colored using score thresholds: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
+        "desc_bundle_grid": "One row per facility, one column per outbreak-assessment domain. Cells colored using score thresholds: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.",
         "desc_facility_map": "Color = total score thresholds: 🔴 ≤ 50  🟡 51–79  🟢 ≥ 80.; size scales with score. Requires latitude/longitude columns.",
         "desc_dispatch": "Sortable facility list with facility status and specific gaps.",
         "desc_snapshot": "All domain scores for the selected assessment. Dashed lines mark score thresholds (🔴 ≤ 50, 🟢 ≥ 80).",
@@ -745,6 +745,15 @@ def outbreak_readiness(df, critical_cols):
     if not cols:
         return pd.DataFrame()
 
+    # If every known component is selected AND the source Total Score column exists,
+    # use the authoritative Total Score as the Readiness value instead of recomputing
+    # an unweighted mean. This keeps Readiness consistent with how the underlying
+    # instrument aggregates scores (which may be weighted differently than a mean).
+    use_total_score = (
+        set(COMPONENT_COLS).issubset(set(critical_cols))
+        and SCORE_TOTAL in df.columns
+    )
+
     latest = df.sort_values(DATE_COL).groupby(FACILITY_COL).tail(1)
     latest = latest.set_index(FACILITY_COL)
 
@@ -754,24 +763,36 @@ def outbreak_readiness(df, critical_cols):
         valid = scores.dropna()
         if valid.empty:
             continue
-        mean = valid.mean()
-        below_ready = scores[scores < READY_THRESHOLD].dropna().index.tolist()
-        critical_below = scores[scores <= CRITICAL_THRESHOLD].dropna().index.tolist()
-        if critical_below:
-            status = "🔴 CRITICAL"
-        elif below_ready:
-            status = "🟡 AT RISK"
+
+        # ---- Readiness ----
+        if use_total_score and pd.notna(row.get(SCORE_TOTAL)):
+            readiness = float(row[SCORE_TOTAL])
         else:
-            status = "🟢 READY"
+            readiness = float(valid.mean())
+
+        below_ready = scores[scores < READY_THRESHOLD].dropna().index.tolist()
+
+        # ---- Status driven by Total Score (unchanged) ----
+        total_score = row.get(SCORE_TOTAL) if SCORE_TOTAL in row.index else None
+        if pd.isna(total_score) or total_score is None:
+            status, total_val = "—", None
+        else:
+            total_val = float(total_score)
+            if total_val <= CRITICAL_THRESHOLD:
+                status = "🔴 CRITICAL"
+            elif total_val < READY_THRESHOLD:
+                status = "🟡 AT RISK"
+            else:
+                status = "🟢 READY"
+
         rows.append({
-            "Facility": fac,
-            "Readiness": round(mean, 1),
-            "Bundle Compliant": "✅" if not below_ready else "❌",
+            "Facility":      fac,
+            "Readiness":     round(readiness, 1),
             "Critical Gaps": ", ".join(COMPONENT_LABELS.get(c, c) for c in below_ready) or "—",
             "Last Assessed": row[DATE_COL].date(),
-            "Status": status,
+            "Status":        status,
         })
-    return pd.DataFrame(rows).sort_values("Readiness")
+    return pd.DataFrame(rows).sort_values("Readiness", na_position="last")
 
 
 def _translate_status(s: str) -> str:
@@ -1794,7 +1815,7 @@ with ui.navset_card_tab(id="main_tabs"):
                 fig = px.scatter_mapbox(
                     latest,
                     lat=LATITUDE_COL, lon=LONGITUDE_COL,
-                    color="Status", size="Readiness", size_max=22,
+                    color="Status", size='Readiness', size_max=22,
                     hover_name=FACILITY_COL,
                     hover_data={
                         "Readiness": ":.1f",
@@ -1818,8 +1839,8 @@ with ui.navset_card_tab(id="main_tabs"):
                     ),
                     height=600,
                     margin=dict(l=0, r=0, t=10, b=10),
-                    legend=dict(orientation="h", yanchor="bottom", y=1.0,
-                                xanchor="right", x=1.0),
+                    legend=dict(orientation="h", yanchor="top", y=1.0,
+                                xanchor="left", x=0.0),
                 )
                 return fig
 
@@ -1843,7 +1864,6 @@ with ui.navset_card_tab(id="main_tabs"):
                 r = r.rename(columns={
                     "Facility":          t("col_facility"),
                     "Readiness":         t("col_readiness"),
-                    "Bundle Compliant":  t("col_bundle_compliant"),
                     "Critical Gaps":     t("col_critical_gaps"),
                     "Last Assessed":     t("col_last_assessed"),
                     "Status":            t("col_status"),
@@ -2026,24 +2046,33 @@ with ui.navset_card_tab(id="main_tabs"):
             def h_delta_heatmap():
                 return ui.card_header(t("card_delta_heatmap"))
 
-            @render_plotly
-            def plot_delta_heatmap():
-                df = filtered_data()
-                labels = component_labels()
-                if df is None or df.empty: return go.Figure()
-                cols = [c for c in COMPONENT_COLS if c in df.columns]
-                if not cols: return go.Figure()
-                _, _, delta = first_last_per_facility(df, cols)
-                delta.columns = [labels.get(c,c) for c in delta.columns]
-                vmax = max(abs(float(delta.values.min())), abs(float(delta.values.max())), 1)
-                fig = px.imshow(delta, color_continuous_scale="RdYlGn",
-                                zmin=-vmax, zmax=vmax, aspect="auto",
-                                labels=dict(color="Δ " + t("col_score")), text_auto=".0f")
-                fig.update_layout(margin=dict(l=10,r=10,t=30,b=10),
-                                  height=max(400, len(delta)*28 + 150),
-                                  xaxis_title="", yaxis_title="")
-                fig.update_xaxes(tickangle=-45)
-                return fig
+        @render_plotly
+        def plot_delta_heatmap():
+            df = filtered_data()
+            labels = component_labels()
+            if df is None or df.empty: return go.Figure()
+            cols = [c for c in COMPONENT_COLS if c in df.columns]
+            if not cols: return go.Figure()
+            _, _, delta = first_last_per_facility(df, cols)
+            delta.columns = [labels.get(c, c) for c in delta.columns]
+            vmax = max(abs(float(delta.values.min())), abs(float(delta.values.max())), 1)
+            fig = px.imshow(delta, color_continuous_scale="RdYlGn",
+                            zmin=-vmax, zmax=vmax, aspect="auto",
+                            labels=dict(color="Δ " + t("col_score")), text_auto=".0f")
+            fig.update_layout(
+                margin=dict(l=10, r=10, t=50, b=10),     # was t=30 — bumped for the new colorbar
+                height=max(400, len(delta) * 28 + 150),  # was +150
+                xaxis_title="", yaxis_title="",
+                coloraxis_colorbar=dict(                 # NEW
+                    orientation="h",
+                    thickness=14,
+                    len=0.55,                            # fixed at 55% of plot width
+                    xanchor="center", x=0.5,
+                    yanchor="bottom", y=1.02,            # sits just above the heatmap
+                ),
+            )
+            fig.update_xaxes(tickangle=-45)
+            return fig
 
         # ----- Facility Progress Summary Table -----
         with ui.card(full_screen=True):
