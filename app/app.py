@@ -737,6 +737,14 @@ def section_banner(emoji: str, title: str, subtitle: str, color: str = "#0d6efd"
         class_="mt-3 mb-3",
     )
 
+def _ordered_critical(df=None):
+    """Selected critical components in canonical COMPONENT_COLS order.
+    Optionally filters to columns present in df."""
+    sel = set(input.critical_components() or [])
+    ordered = [c for c in COMPONENT_COLS if c in sel]
+    if df is not None:
+        ordered = [c for c in ordered if c in df.columns]
+    return ordered
 
 def outbreak_readiness(df, critical_cols):
     if df is None or df.empty or not critical_cols:
@@ -1723,7 +1731,7 @@ with ui.navset_card_tab(id="main_tabs"):
                 df = filtered_data()
                 if df is None or df.empty:
                     return ui.div(class_="text-muted p-3")
-                critical = [c for c in input.critical_components() if c in df.columns]
+                critical = _ordered_critical(df)
                 if not critical:
                     return ui.div(class_="text-muted p-3")
 
@@ -1785,7 +1793,7 @@ with ui.navset_card_tab(id="main_tabs"):
                         f"<b>{LATITUDE_COL}</b> / <b>{LONGITUDE_COL}</b>"
                     )
 
-                critical = [c for c in input.critical_components() if c in df.columns]
+                critical = _ordered_critical(df)
                 if not critical:
                     return _map_placeholder(t("map_no_critical"))
 
