@@ -188,6 +188,14 @@ TRANSLATIONS = {
         "sync_load": "📥 Load Data",
         "sync_note": "Data refreshes automatically via a secure pipeline. Enter the passphrase provided by your coordinator.",
 
+        "traj_band": "📊 Median + spread",
+        "traj_by_province": "🗺️ By province",
+        "traj_by_district": "🗺️ By district",
+        "traj_individual": "📈 Individual (worst 50)",
+        "hm_facility": "🏥 Facility (top movers)",
+        "chart_median": "Median",
+        "chart_iqr": "25th–75th percentile",
+
         
 
     },
@@ -321,6 +329,14 @@ TRANSLATIONS = {
         "sync_load": "📥 Charger les données",
         "sync_note": "Les données sont actualisées automatiquement via un pipeline sécurisé. Saisissez la phrase d'accès fournie par votre coordinateur.",
 
+        "traj_band": "📊 Médiane + dispersion",
+        "traj_by_province": "🗺️ Par province",
+        "traj_by_district": "🗺️ Par district",
+        "traj_individual": "📈 Individuel (50 plus faibles)",
+        "hm_facility": "🏥 Établissement (plus fortes variations)",
+        "chart_median": "Médiane",
+        "chart_iqr": "25e–75e percentile",
+
         
 
     },
@@ -453,6 +469,17 @@ TRANSLATIONS = {
         "sync_passphrase": "🔑 Frase de acceso",
         "sync_load": "📥 Cargar datos",
         "sync_note": "Los datos se actualizan automáticamente mediante un canal seguro. Ingrese la frase de acceso proporcionada por su coordinador.",
+
+
+        "traj_band": "📊 Mediana + dispersión",
+        "traj_by_province": "🗺️ Por provincia",
+        "traj_by_district": "🗺️ Por distrito",
+        "traj_individual": "📈 Individual (50 peores)",
+        "hm_facility": "🏥 Instalación (mayores cambios)",
+        "chart_median": "Mediana",
+        "chart_iqr": "Percentil 25–75",
+
+
 
     },
 }
@@ -2343,35 +2370,94 @@ with ui.navset_card_tab(id="main_tabs"):
                 selected="all", inline=True,
             )
 
+            ui.input_radio_buttons(
+                "traj_mode", None,
+                {"band": "📊 Median + spread", "province": "🗺️ By province",
+                 "district": "🗺️ By district", "individual": "📈 Individual (worst 50)"},
+                selected="band", inline=True,
+            )
+
             @render_plotly
             def plot_total_trajectory():
                 df = filtered_data()
                 if df is None or df.empty or SCORE_TOTAL not in df.columns:
                     return go.Figure()
-                
-                # ---- Trend filter (first → last total score change) ----
+
+                # ---- Trend filter (unchanged) ----
                 tf = input.trend_filter()
                 if tf and tf != "all":
                     _, _, delta = first_last_per_facility(df, [SCORE_TOTAL])
-                    d = delta[SCORE_TOTAL]
-                    if tf == "up":
-                        keep = d[d >= 3].index
-                    elif tf == "down":
-                        keep = d[d <= -3].index
-                    else:  # flat / static
-                        keep = d[(d > -3) & (d < 3)].index
+                    d0 = delta[SCORE_TOTAL]
+                    keep = (d0[d0 >= 3].index if tf == "up"
+                            else d0[d0 <= -3].index if tf == "down"
+                            else d0[(d0 > -3) & (d0 < 3)].index)
                     df = df[df[FACILITY_COL].isin(keep)]
                     if df.empty:
                         return go.Figure()
-                
+
+                mode = input.traj_mode()
                 x_col, x_lbl = x_axis_map()[input.x_axis()]
-                d = df.dropna(subset=[SCORE_TOTAL, x_col])
-                fig = px.line(
-                    d, x=x_col, y=SCORE_TOTAL, color=FACILITY_COL,
-                    markers=True,
-                    labels={SCORE_TOTAL: t("chart_total_score"),
-                            x_col: x_lbl, FACILITY_COL: t("col_facility")},
-                )
+                d = df.dropna(subset=[SCORE_TOTAL, x_col]).copy()
+
+                # ---- Bin the x-axis (weekly for continuous axes) ----
+                if x_col == DATE_COL:
+                    d["_x"] = d[x_col].dt.to_period("W").dt.start_time
+                elif x_col == "Days Since Baseline":
+                    d["_x"] = (d[x_col] // 7) * 7
+                else:
+                    d["_x"] = d[x_col]
+
+                fig = go.Figure()
+
+                if mode == "band":
+                    g = d.groupby("_x")[SCORE_TOTAL]
+                    q = g.quantile([0.25, 0.5, 0.75]).unstack().sort_index()
+                    n = g.size().reindex(q.index)
+                    fig.add_trace(go.Scatter(              # upper bound (invisible)
+                        x=q.index, y=q[0.75], line=dict(width=0),
+                        showlegend=False, hoverinfo="skip"))
+                    fig.add_trace(go.Scatter(              # IQR ribbon
+                        x=q.index, y=q[0.25], fill="tonexty",
+                        fillcolor="rgba(13,110,253,.15)", line=dict(width=0),
+                        name=t("chart_iqr"), hoverinfo="skip"))
+                    fig.add_trace(go.Scatter(              # median line
+                        x=q.index, y=q[0.5], mode="lines+markers",
+                        line=dict(color="#0d6efd", width=3),
+                        name=t("chart_median"), customdata=n,
+                        hovertemplate=(t("chart_median") + ": %{y:.1f}"
+                                       "<br>n = %{customdata}<extra></extra>")))
+
+                elif mode in ("province", "district"):
+                    geo_col = PROVINCE_COL if mode == "province" else DISTRICT_COL
+                    if geo_col not in d.columns:
+                        return _map_placeholder(t("map_no_data"))
+                    med = (d.groupby([geo_col, "_x"])[SCORE_TOTAL]
+                             .median().reset_index())
+                    for geo, grp in med.groupby(geo_col):
+                        fig.add_trace(go.Scatter(
+                            x=grp["_x"], y=grp[SCORE_TOTAL],
+                            mode="lines+markers", name=str(geo),
+                            hovertemplate=f"<b>{geo}</b><br>"
+                                          + t("chart_median")
+                                          + ": %{y:.1f}<extra></extra>"))
+
+                else:  # individual — capped at the 50 worst by latest score
+                    MAX_LINES = 50
+                    latest = d.sort_values(DATE_COL).groupby(FACILITY_COL).tail(1)
+                    worst = latest.nsmallest(MAX_LINES, SCORE_TOTAL)[FACILITY_COL]
+                    dd = d[d[FACILITY_COL].isin(worst)]
+                    for fac, grp in dd.groupby(FACILITY_COL):
+                        grp = grp.sort_values("_x")
+                        fig.add_trace(go.Scatter(
+                            x=grp["_x"], y=grp[SCORE_TOTAL],
+                            mode="lines+markers", name=str(fac),
+                            line=dict(width=1.5)))
+                    if d[FACILITY_COL].nunique() > MAX_LINES:
+                        fig.add_annotation(
+                            text=f"Worst {MAX_LINES} of {d[FACILITY_COL].nunique()} facilities",
+                            xref="paper", yref="paper", x=0.01, y=1.07,
+                            showarrow=False, font=dict(size=11, color="#888"))
+
                 fig.add_hline(y=CRITICAL_THRESHOLD, line_dash="dash",
                               line_color=COLOR_CRITICAL,
                               annotation_text=t("chart_critical_thresh"),
@@ -2382,14 +2468,11 @@ with ui.navset_card_tab(id="main_tabs"):
                               annotation_text=t("chart_ready_thresh"),
                               annotation_position="top right",
                               annotation_font_color=COLOR_READY)
-                if input.x_axis() in ("days", "num"):
-                    fig.add_vline(x=0 if input.x_axis()=="days" else 1,
-                                  line_dash="dot", line_color="gray",
-                                  annotation_text=t("chart_baseline"),
-                                  annotation_position="top")
-                fig.update_layout(margin=dict(l=10,r=10,t=30,b=10), height=480,
-                                  legend_title=t("col_facility"),
-                                  hovermode="x unified")
+                fig.update_layout(
+                    margin=dict(l=10, r=10, t=40, b=10), height=480,
+                    xaxis_title=x_lbl, yaxis_title=t("chart_total_score"),
+                    yaxis=dict(range=[0, 105]), hovermode="x unified",
+                    plot_bgcolor="white")
                 return fig
 
         # ----- Change from Baseline Heatmap -----
@@ -2397,34 +2480,69 @@ with ui.navset_card_tab(id="main_tabs"):
             @render.ui
             def h_delta_heatmap():
                 return ui.card_header(t("card_delta_heatmap"))
-
-        @render_plotly
-        def plot_delta_heatmap():
-            df = filtered_data()
-            labels = component_labels()
-            if df is None or df.empty: return go.Figure()
-            cols = [c for c in COMPONENT_COLS if c in df.columns]
-            if not cols: return go.Figure()
-            _, _, delta = first_last_per_facility(df, cols)
-            delta.columns = [labels.get(c, c) for c in delta.columns]
-            vmax = max(abs(float(delta.values.min())), abs(float(delta.values.max())), 1)
-            fig = px.imshow(delta, color_continuous_scale="RdYlGn",
-                            zmin=-vmax, zmax=vmax, aspect="auto",
-                            labels=dict(color="Δ " + t("col_score")), text_auto=".0f")
-            fig.update_layout(
-                margin=dict(l=10, r=10, t=50, b=10),     # was t=30 — bumped for the new colorbar
-                height=max(400, len(delta) * 28 + 150),  # was +150
-                xaxis_title="", yaxis_title="",
-                coloraxis_colorbar=dict(                 # NEW
-                    orientation="h",
-                    thickness=14,
-                    len=0.55,                            # fixed at 55% of plot width
-                    xanchor="center", x=0.5,
-                    yanchor="bottom", y=1.02,            # sits just above the heatmap
-                ),
+            
+            ui.input_radio_buttons(
+                "heatmap_level", None,
+                {"province": "🗺️ Province", "district": "🗺️ District",
+                 "subdistrict": "🗺️ Subdistrict", "facility": "🏥 Facility (top movers)"},
+                selected="province", inline=True,
             )
-            fig.update_xaxes(tickangle=-45)
-            return fig
+
+            @render_plotly
+            def plot_delta_heatmap():
+                df = filtered_data()
+                labels = component_labels()
+                if df is None or df.empty:
+                    return go.Figure()
+                cols = [c for c in COMPONENT_COLS if c in df.columns]
+                if not cols:
+                    return go.Figure()
+
+                _, _, delta = first_last_per_facility(df, cols)
+                level = input.heatmap_level()
+                geo_map_col = {"province": PROVINCE_COL, "district": DISTRICT_COL,
+                               "subdistrict": SUBDISTRICT_COL}.get(level)
+
+                if geo_map_col and geo_map_col in df.columns:
+                    # ---- Aggregate rows to the geo level (median Δ) ----
+                    geo_of = (df.sort_values(DATE_COL)
+                                .groupby(FACILITY_COL)[geo_map_col].last())
+                    delta["_geo"] = delta.index.map(geo_of)
+                    counts = delta.groupby("_geo").size()
+                    mat = delta.groupby("_geo")[cols].median()
+                    mat.index = [f"{g}  (n={counts[g]})" for g in mat.index]
+                    note = None
+                else:
+                    # ---- Facility level: top ±25 movers by mean domain Δ ----
+                    N = 25
+                    mover = delta[cols].mean(axis=1)
+                    total_n = len(mover)
+                    if total_n > 2 * N:
+                        keep = pd.concat([mover.nsmallest(N),
+                                          mover.nlargest(N)]).index
+                        mat = delta.loc[mover.loc[keep].sort_values().index, cols]
+                        note = (f"Top {N} decliners & {N} improvers "
+                                f"of {total_n} facilities")
+                    else:
+                        mat = delta.loc[mover.sort_values().index, cols]
+                        note = None
+
+                mat.columns = [labels.get(c, c) for c in mat.columns]
+                vmax = max(abs(float(mat.values.min())),
+                           abs(float(mat.values.max())), 1)
+                fig = px.imshow(mat, color_continuous_scale="RdYlGn",
+                                zmin=-vmax, zmax=vmax, aspect="auto",
+                                labels=dict(color="Δ " + t("col_score")),
+                                text_auto=".0f")
+                if note:
+                    fig.add_annotation(text=note, xref="paper", yref="paper",
+                                       x=0.01, y=1.04, showarrow=False,
+                                       font=dict(size=11, color="#888"))
+                fig.update_layout(margin=dict(l=10, r=10, t=40, b=10),
+                                  height=max(360, len(mat) * 28 + 160),
+                                  xaxis_title="", yaxis_title="")
+                fig.update_xaxes(tickangle=-45)
+                return fig
 
         # ----- Facility Progress Summary Table -----
         with ui.card(full_screen=True):
